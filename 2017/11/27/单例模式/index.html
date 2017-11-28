@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="javacript基础指南">
+<meta name="description" content="设计模式之单列模式 单例模式的定义: 单例模式是保证一个类, 仅有一个实例. 实现单例模式:   12345678910111213let Login = function (name) &amp;#123;    this.name = name;    this.instance = null;&amp;#125;">
 <meta name="keywords" content="编程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="name">
-<meta property="og:url" content="https://leo-zn.github.io/leo.github.io/2017/11/28/name/index.html">
+<meta property="og:title" content="设计模式">
+<meta property="og:url" content="https://leo-zn.github.io/leo.github.io/2017/11/27/单例模式/index.html">
 <meta property="og:site_name" content="leo博客">
-<meta property="og:description" content="javacript基础指南">
+<meta property="og:description" content="设计模式之单列模式 单例模式的定义: 单例模式是保证一个类, 仅有一个实例. 实现单例模式:   12345678910111213let Login = function (name) &amp;#123;    this.name = name;    this.instance = null;&amp;#125;;Login.prototype.getName = function () &amp;#123;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-28T03:32:15.878Z">
+<meta property="og:updated_time" content="2017-11-28T03:31:39.398Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="name">
-<meta name="twitter:description" content="javacript基础指南">
+<meta name="twitter:title" content="设计模式">
+<meta name="twitter:description" content="设计模式之单列模式 单例模式的定义: 单例模式是保证一个类, 仅有一个实例. 实现单例模式:   12345678910111213let Login = function (name) &amp;#123;    this.name = name;    this.instance = null;&amp;#125;;Login.prototype.getName = function () &amp;#123;">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://leo-zn.github.io/leo.github.io/2017/11/28/name/"/>
+  <link rel="canonical" href="https://leo-zn.github.io/leo.github.io/2017/11/27/单例模式/"/>
 
 
 
 
 
-  <title>name | leo博客</title>
+  <title>设计模式 | leo博客</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://leo-zn.github.io/leo.github.io/leo.github.io/2017/11/28/name/">
+    <link itemprop="mainEntityOfPage" href="https://leo-zn.github.io/leo.github.io/leo.github.io/2017/11/27/单例模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="leo">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">name</h1>
+          <h1 class="post-title" itemprop="name headline">设计模式</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T10:42:35+08:00">
-                2017-11-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T21:22:49+08:00">
+                2017-11-27
               </time>
             
 
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo.github.io/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
+                  <a href="/leo.github.io/categories/sjms/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式与实践</span>
                   </a>
                 </span>
 
@@ -352,7 +352,18 @@
       
 
       
-        <h1 id="javacript基础指南"><a href="#javacript基础指南" class="headerlink" title="javacript基础指南"></a>javacript基础指南</h1>
+        <h2 id="设计模式之单列模式"><a href="#设计模式之单列模式" class="headerlink" title="设计模式之单列模式"></a>设计模式之单列模式</h2><ol>
+<li>单例模式的定义:<br> 单例模式是保证一个类, 仅有一个实例.</li>
+<li><p>实现单例模式: </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let Login = function (name) &#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.instance = null;</span><br><span class="line">&#125;;</span><br><span class="line">Login.prototype.getName = function () &#123;</span><br><span class="line">    alert(this.name);</span><br><span class="line">&#125;;</span><br><span class="line">Login.prototype.getInstance = function (name) &#123;</span><br><span class="line">    if(!this.instance) &#123;</span><br><span class="line">        this.instance = new Singleton(name);</span><br><span class="line">    &#125;</span><br><span class="line">    return thi.instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    let a = Login.getInstance(&apos;Preson1&apos;);</span><br><span class="line">    let b = Login.getInstance(&apos;Preson2&apos;);</span><br><span class="line">```    </span><br><span class="line">4. 对比两个对象</span><br></pre></td></tr></table></figure>
+<p>console.log (a === b) //true<br>```</p>
+</li>
+<li>单例模式的好处<br> 不用重复的创建相同的对象, 节省内存和时间消耗</li>
+</ol>
+
       
     </div>
     
@@ -390,15 +401,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/leo.github.io/2017/11/28/PHP超光速指-北/" rel="next" title="PHP光速入门指南">
-                <i class="fa fa-chevron-left"></i> PHP光速入门指南
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/leo.github.io/2017/11/28/PHP超光速指-北/" rel="prev" title="PHP光速入门指南">
+                PHP光速入门指南 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -532,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#javacript基础指南"><span class="nav-number">1.</span> <span class="nav-text">javacript基础指南</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设计模式之单列模式"><span class="nav-number">1.</span> <span class="nav-text">设计模式之单列模式</span></a></li></ol></div>
             
 
           </div>
