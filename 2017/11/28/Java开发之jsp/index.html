@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="javacript基础指南">
+<meta name="description" content="java 动态页面技术之 jsp1. jsp 脚本和注释jsp 脚本:    1. &amp;lt;%java 代码%&amp;gt;  --&amp;gt; 内部的 java 代码会翻译到 service 方法的内部      2. &amp;lt;%=java 变量和表达式%&amp;gt;  --&amp;gt;">
 <meta name="keywords" content="编程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="name">
-<meta property="og:url" content="https://leo-zn.github.io/leo.github.io/2017/11/28/name/index.html">
+<meta property="og:title" content="java开发之jsp">
+<meta property="og:url" content="https://leo-zn.github.io/leo.github.io/2017/11/28/Java开发之jsp/index.html">
 <meta property="og:site_name" content="leo博客">
-<meta property="og:description" content="javacript基础指南">
+<meta property="og:description" content="java 动态页面技术之 jsp1. jsp 脚本和注释jsp 脚本:    1. &amp;lt;%java 代码%&amp;gt;  --&amp;gt; 内部的 java 代码会翻译到 service 方法的内部      2. &amp;lt;%=java 变量和表达式%&amp;gt;  --&amp;gt; 会被翻译成 service 方法内部 out.print()    3. &amp;lt;%!java 代码%&amp;gt; --&amp;gt;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-28T03:32:15.878Z">
+<meta property="og:updated_time" content="2017-11-28T16:49:10.396Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="name">
-<meta name="twitter:description" content="javacript基础指南">
+<meta name="twitter:title" content="java开发之jsp">
+<meta name="twitter:description" content="java 动态页面技术之 jsp1. jsp 脚本和注释jsp 脚本:    1. &amp;lt;%java 代码%&amp;gt;  --&amp;gt; 内部的 java 代码会翻译到 service 方法的内部      2. &amp;lt;%=java 变量和表达式%&amp;gt;  --&amp;gt; 会被翻译成 service 方法内部 out.print()    3. &amp;lt;%!java 代码%&amp;gt; --&amp;gt;">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://leo-zn.github.io/leo.github.io/2017/11/28/name/"/>
+  <link rel="canonical" href="https://leo-zn.github.io/leo.github.io/2017/11/28/Java开发之jsp/"/>
 
 
 
 
 
-  <title>name | leo博客</title>
+  <title>java开发之jsp | leo博客</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://leo-zn.github.io/leo.github.io/leo.github.io/2017/11/28/name/">
+    <link itemprop="mainEntityOfPage" href="https://leo-zn.github.io/leo.github.io/leo.github.io/2017/11/28/Java开发之jsp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="leo">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">name</h1>
+          <h1 class="post-title" itemprop="name headline">java开发之jsp</h1>
         
 
         <div class="post-meta">
@@ -292,7 +292,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T10:42:35+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T23:03:59+08:00">
                 2017-11-28
               </time>
             
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo.github.io/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
+                  <a href="/leo.github.io/categories/java编程/" itemprop="url" rel="index">
+                    <span itemprop="name">java编程</span>
                   </a>
                 </span>
 
@@ -352,7 +352,67 @@
       
 
       
-        <h1 id="javacript基础指南"><a href="#javacript基础指南" class="headerlink" title="javacript基础指南"></a>javacript基础指南</h1>
+        <h1 id="java-动态页面技术之-jsp"><a href="#java-动态页面技术之-jsp" class="headerlink" title="java 动态页面技术之 jsp"></a>java 动态页面技术之 jsp</h1><h3 id="1-jsp-脚本和注释"><a href="#1-jsp-脚本和注释" class="headerlink" title="1. jsp 脚本和注释"></a>1. jsp 脚本和注释</h3><pre><code>jsp 脚本:
+   1. &lt;%java 代码%&gt;  --&gt; 内部的 java 代码会翻译到 service 方法的内部  
+   2. &lt;%=java 变量和表达式%&gt;  --&gt; 会被翻译成 service 方法内部 out.print()
+   3. &lt;%!java 代码%&gt; --&gt; 会被翻译成 servlet 的成员变量
+注意点: 第一种不可以直接定义方法    
+</code></pre><ul>
+<li>jsp 注释: <ol>
+<li>HTML 注释: <code>&lt;!-- 内容 --&gt;</code> jsp 源码、翻译后的 servle、 页面显示 html 源码、 都是可见的</li>
+<li>java 注释: <code>// 单行注释 与 /*多行注释*/</code> 翻译后的 servlet 和 jsp 源码可见</li>
+<li>jsp 注释: &lt;%– 内容 –%&gt; 仅 <code>jsp</code> 源码可见 </li>
+</ol>
+</li>
+</ul>
+<h3 id="2-jsp运行原理"><a href="#2-jsp运行原理" class="headerlink" title="2. jsp运行原理"></a>2. jsp运行原理</h3><pre><code>* jsp 本质就是 servlet
+* 第一次访问--&gt; **.jsp --&gt; **.jsp.java --&gt; 编译运行
+* 其源码可在 Tomcat 的 work 目录中找到
+</code></pre><h3 id="3-jsp-指令"><a href="#3-jsp-指令" class="headerlink" title="3. jsp 指令"></a>3. jsp 指令</h3><pre><code>page 指令属性
+   1. language: jsp 脚本可以嵌入的语言种类
+   2. pageEncoding: 当前 jsp 文件本身的编码 -- 内部可以包含 contentType
+   3. contentType: responce.setContentType(text/html; charset=UTF-8)
+   4. session: 是否自动创建 session
+   5. import: 导入 java 的包
+   6. errorPage:当页面出错后跳转的页面
+   7. isErrorPage: 当前页面是一个处理错误的页面
+</code></pre><h3 id="4-include-指令"><a href="#4-include-指令" class="headerlink" title="4. include 指令"></a>4. include 指令</h3><pre><code>将一个静态 jsp 中的页面包含到另一个 jsp 页面中 
+格式 `&lt;%@ include file=&quot; 被包含的文件地址 &quot;%&gt; `    
+</code></pre><h3 id="5-taglib-指定"><a href="#5-taglib-指定" class="headerlink" title="5. taglib 指定"></a>5. taglib 指定</h3><pre><code>在 jsp 页面中引入标签库
+格式: `&lt;%@ taglib url=&quot;标签库地址&quot; prefix=&quot;前缀&quot;%&gt;` 
+</code></pre><ol>
+<li>jsp 内置/隐式对象 (9个)</li>
+</ol>
+<pre><code>out: javax.servlet.jsp.JspWrite  --&gt; 用于页面输出
+request: javax.servlet.http.HttpServletRequest --&gt; 得到用户信息
+respones: javax.servlet.http.HttpServletReponse --&gt; 服务器向客户端的回应信息
+confi:g javax.servlet.ServletConfig  --&gt; 服务器配置, 可以获取初始化参数
+session: javax.servlet.http.HttpSession  --&gt; 用来保存用户的信息
+application: javax.servlet.ServletContext  --&gt; 所有用户的共享信息
+page: java.lang.Object  --&gt; 指当前页面转换后的 Servlet 类的实例
+pageContext: javax.servlet.jsp.PageContext  --&gt; JSP 的页面容器
+exception: java.lang.Throwable  --&gt; 表示 JSP 页面所发生的异常, 在错误页面财起作用
+</code></pre><p>pageContext 是一个域对象<br>属性:</p>
+<pre><code>1. setAttribute(String name, Object obj)
+2. getAttribute(String name)
+3. removeAttrbute(String name)
+scope 是在指定的域中存储
+4. setAttribute(String name, Object obj, init scope)
+5. getAttribute(String name, init scope)
+6. removeAttrbute(String name, init scope)
+7.findAttrbute(String name)
+依次在4个作用域中寻找, 从小作用域到大作用域
+</code></pre><h3 id="7-四大作用域"><a href="#7-四大作用域" class="headerlink" title="7. 四大作用域"></a>7. 四大作用域</h3><pre><code>page 域: 当前 jsp 页面范围
+request 域: 一次请求
+session 域: 一次会话
+application 域: 整个 web 应用
+</code></pre><h3 id="8-获取其他8-大隐式对象"><a href="#8-获取其他8-大隐式对象" class="headerlink" title="8. 获取其他8 大隐式对象"></a>8. 获取其他8 大隐式对象</h3><pre><code>pageContent.getRequest()
+pageContent.geSession()
+其余省略
+</code></pre><h3 id="9-jsp-标签-动作"><a href="#9-jsp-标签-动作" class="headerlink" title="9. jsp 标签(动作)"></a>9. jsp 标签(动作)</h3><pre><code>1. 动态包含: &lt;jsp: include page=&quot;被包含的页面&quot;/&gt;
+2. 请求转发: &lt;jsp: forward page=&quot;要转发的支援&quot;/&gt;
+</code></pre><p>动态包含和静态的区别:<br>    动态包含是运行时载入,编译会产生 多个 .class 的文件, 而静态的会合并成一个文件(编译过后只有一个.class 文件)</p>
+
       
     </div>
     
@@ -486,7 +546,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/leo.github.io/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -532,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#javacript基础指南"><span class="nav-number">1.</span> <span class="nav-text">javacript基础指南</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java-动态页面技术之-jsp"><span class="nav-number">1.</span> <span class="nav-text">java 动态页面技术之 jsp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-jsp-脚本和注释"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. jsp 脚本和注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-jsp运行原理"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. jsp运行原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-jsp-指令"><span class="nav-number">1.0.3.</span> <span class="nav-text">3. jsp 指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-include-指令"><span class="nav-number">1.0.4.</span> <span class="nav-text">4. include 指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-taglib-指定"><span class="nav-number">1.0.5.</span> <span class="nav-text">5. taglib 指定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-四大作用域"><span class="nav-number">1.0.6.</span> <span class="nav-text">7. 四大作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-获取其他8-大隐式对象"><span class="nav-number">1.0.7.</span> <span class="nav-text">8. 获取其他8 大隐式对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-jsp-标签-动作"><span class="nav-number">1.0.8.</span> <span class="nav-text">9. jsp 标签(动作)</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
