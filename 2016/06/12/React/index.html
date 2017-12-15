@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="设计模式," />
+  <meta name="keywords" content="React," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="设计模式之迭代器模式```">
-<meta name="keywords" content="设计模式">
+<meta name="description" content="React 特点 简单 声明式React 的核心是组件, 组件的设计目的是提高代码复用率, 降低代码的测试难道, 降低代码复杂度;  jsx 基础语法 首字母大写代表 React 组件, 小写代表是 DOM 元素; React 组件支持嵌套; {} 里面可以写 javascript 求值表达式代码 if 判断需要使用 ">
+<meta name="keywords" content="React">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式">
-<meta property="og:url" content="https://leo-zn.github.io/leo.github.io/2016/06/12/23种设计模式/index.html">
+<meta property="og:title" content="React">
+<meta property="og:url" content="https://leo-zn.github.io/leo.github.io/2016/06/12/React/index.html">
 <meta property="og:site_name" content="leo博客">
-<meta property="og:description" content="设计模式之迭代器模式```">
+<meta property="og:description" content="React 特点 简单 声明式React 的核心是组件, 组件的设计目的是提高代码复用率, 降低代码的测试难道, 降低代码复杂度;  jsx 基础语法 首字母大写代表 React 组件, 小写代表是 DOM 元素; React 组件支持嵌套; {} 里面可以写 javascript 求值表达式代码 if 判断需要使用 三元表达式或者短路运算符; 组件驼峰命名; html 和 class 是 jav">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-14T01:44:18.416Z">
+<meta property="og:updated_time" content="2017-12-15T01:08:57.446Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式">
-<meta name="twitter:description" content="设计模式之迭代器模式```">
+<meta name="twitter:title" content="React">
+<meta name="twitter:description" content="React 特点 简单 声明式React 的核心是组件, 组件的设计目的是提高代码复用率, 降低代码的测试难道, 降低代码复杂度;  jsx 基础语法 首字母大写代表 React 组件, 小写代表是 DOM 元素; React 组件支持嵌套; {} 里面可以写 javascript 求值表达式代码 if 判断需要使用 三元表达式或者短路运算符; 组件驼峰命名; html 和 class 是 jav">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://leo-zn.github.io/leo.github.io/2016/06/12/23种设计模式/"/>
+  <link rel="canonical" href="https://leo-zn.github.io/leo.github.io/2016/06/12/React/"/>
 
 
 
 
 
-  <title>设计模式 | leo博客</title>
+  <title>React | leo博客</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://leo-zn.github.io/leo.github.io/leo.github.io/2016/06/12/23种设计模式/">
+    <link itemprop="mainEntityOfPage" href="https://leo-zn.github.io/leo.github.io/leo.github.io/2016/06/12/React/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="leo">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">设计模式</h1>
+          <h1 class="post-title" itemprop="name headline">React</h1>
         
 
         <div class="post-meta">
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/leo.github.io/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
+                  <a href="/leo.github.io/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
                   </a>
                 </span>
 
@@ -350,7 +350,90 @@
       
 
       
-        <h1 id="设计模式之迭代器模式"><a href="#设计模式之迭代器模式" class="headerlink" title="设计模式之迭代器模式"></a>设计模式之迭代器模式</h1><p>```</p>
+        <h1 id="React-特点"><a href="#React-特点" class="headerlink" title="React 特点"></a>React 特点</h1><ol>
+<li>简单</li>
+<li>声明式<br>React 的核心是组件, 组件的设计目的是<code>提高代码复用率</code>, <code>降低代码的测试难道</code>, <code>降低代码复杂度</code>;</li>
+</ol>
+<h1 id="jsx-基础语法"><a href="#jsx-基础语法" class="headerlink" title="jsx 基础语法"></a>jsx 基础语法</h1><ol>
+<li>首字母大写代表 React 组件, 小写代表是 DOM 元素;</li>
+<li>React 组件支持嵌套;</li>
+<li><code>{}</code> 里面可以写 javascript 求值表达式代码 if 判断需要使用 三元表达式或者短路运算符;</li>
+<li>组件驼峰命名;</li>
+<li>html 和 class 是 javascript 的关键字, 需要使用 htmlFor 和 className 代替;</li>
+<li>HTML 中写字符串 <code>{&quot; &quot;}</code> 或者 不用 <code>{}</code>, 直接写;</li>
+<li>style = <code>{}</code>, 必须是一个对象, 而且只能写在 HTML 的标签中, 写在标签对应得组件是无效的,只能当属性传递下去!;</li>
+</ol>
+<h1 id="非-DOM-属性"><a href="#非-DOM-属性" class="headerlink" title="非 DOM 属性"></a>非 DOM 属性</h1><ol>
+<li>dangerouslySetInnerHTML: 在 JSX 中直接插入 HTML, 用于动态 DOM 元素, 可能导致 XSS 攻击;</li>
+<li>ref: 父组件引用子组件;<br> 在节点中设置 ref=”自定义”, 然后在其他位置或方法可以获取该节点的  DOM 实例节点, this.refs.”自定义”.属性;</li>
+<li>key: 提高渲染性能,<br>  React 并不能知道某个节点在位置不同的情况下,在组件中是否能复用, 导致插入节点使得可复用的节点无法复用, 引入 key 可以复用这个节点, 因为React 会比较 key 是否相同, 如果相同,则复用改节点, 直接在前插入一个新节点, 在列表中,应该使用 key 以提高渲染性能;</li>
+</ol>
+<h1 id="React-diff-算法流程"><a href="#React-diff-算法流程" class="headerlink" title="React diff 算法流程"></a>React diff 算法流程</h1><ol>
+<li>比较节点是否相同, 相同进入下一步, 不相同则直接生成新的节点;</li>
+<li>判断是否是 DOM 还是 自定义的节点, 进入下一步;</li>
+<li>比较节点的属性及ID, class, 相同结束比较,如果不同, 这重新设置这些属性不会重新渲染,如果是组件的话,重新设置状态;</li>
+</ol>
+<h1 id="JSX-解释器架构介绍"><a href="#JSX-解释器架构介绍" class="headerlink" title="JSX 解释器架构介绍"></a>JSX 解释器架构介绍</h1><ol>
+<li>入口函数 -&gt; 加载模块 -&gt; 解析 JSX -&gt; 执行 JS<br> 因为所有的程序运行在浏览器中, 大量的 JSX 会有性能问题, 解决办法是,<code>提前编译 JSX</code></li>
+</ol>
+<h1 id="React-组件的生命周期"><a href="#React-组件的生命周期" class="headerlink" title="React 组件的生命周期"></a>React 组件的生命周期</h1><ol>
+<li>组件本质上是<code>状态机</code>;</li>
+<li>钩子函数<ol>
+<li>初始化</li>
+</ol>
+<ul>
+<li>getDefaultProps: 第一个实例创建时调用,只调用一次, 实例之间<code>共享引用</code>;</li>
+<li>getInitialState: 初始化每个实例特有的<code>状态</code>;<br>以上两个在ES6 中用 constructor 执行</li>
+<li>componentWillMount: 组件开始挂载 DOM 上, render 之前最后一次修改状态的机会;</li>
+<li>render: 渲染函数, 只能访问 this.props 和 this.state, 只有一个顶层组件, 不允许修改状态和 DOM 输出;</li>
+<li>componetDidMount: 成功渲染并完成真实 DOM 之后触发, 所有的 DOM 操作, 都应该在这里使用, 因为,在此之前, DOM 并没有渲染完成!</li>
+</ul>
+<ol>
+<li>运行中</li>
+</ol>
+<ul>
+<li>componentWillReceiveProps: 在父组件修改属性触发, 在传送新的属性到达组件之前;</li>
+<li>shouldComponentUpdate: 返回 false 会阻止 render 函数运行, 避免不需要的 diff 用于提高性能;</li>
+<li>componentWillUpdate: 不能修改属性和状态;</li>
+<li>render: 渲染函数, 只能访问 this.props 和 this.state, 只有一个顶层组件, 不允许修改状态和 DOM 输出;</li>
+<li>componetDidUpdate: 可以修改 DOM;</li>
+</ul>
+<ol>
+<li>销毁</li>
+</ol>
+<ul>
+<li>componentWillUnmont: 组件销毁时触发;</li>
+</ul>
+</li>
+</ol>
+<h1 id="属性和状态"><a href="#属性和状态" class="headerlink" title="属性和状态"></a>属性和状态</h1><ol>
+<li><p>porps 可以接受由父组件中传来的属性;</p>
+</li>
+<li><p>state 状态管理对象,当对象中的任意属性改变, 那么他会调用 render 方法, 重新渲染!</p>
+<ul>
+<li>重新设置状态只能用 setState() 方法来修改</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>区别</li>
+<li>当运行时需要改变的属性, 必须使用过 state, 不能使用 props;</li>
+<li>props 是自顶向下流动的, 组件不能改变自身的 porps;</li>
+</ul>
+<h1 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h1><ul>
+<li><code>onClick={this.handleClick.bind(this)}</code></li>
+</ul>
+<ul>
+<li>on后面的事件名字必须大写;</li>
+<li><code>{}</code>, 里面的方法不用加()调用;</li>
+<li>bind(this), 将改组件的对象传入, 这里就能在方法里用 this 来获取到改组件的属性: 例如 this.refs;</li>
+<li>调用方法, 默认会传入一个事件对象, 可以在该方法中获取;</li>
+<li>bind(this, value1), 后面可以传入一个值,这样可以在该调用的函数中获取, (value1, e), 事件参数,默认是最后一位的, 前面的参数才是传递过来的参数;</li>
+<li>子组件的参数传递给父组件, 是父组件把自己的函数当做属性传递给子组件, 然后子组件在自己的事件中, 调用父组件传递过来的函数, 在该函数中,可以拿到事件对象 e, e.target, 就是子组件;</li>
+</ul>
+<ul>
+<li>Mixin 的使用<br>  Mixin 的目的是<code>横向抽离</code>出组件的相似代码;</li>
+</ul>
 
       
     </div>
@@ -376,7 +459,7 @@
       
         <div class="post-tags">
           
-            <a href="/leo.github.io/tags/设计模式/" rel="tag"># 设计模式</a>
+            <a href="/leo.github.io/tags/React/" rel="tag"># React</a>
           
         </div>
       
@@ -389,18 +472,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/leo.github.io/2016/06/12/java面向对象/" rel="next" title="java面向对象">
-                <i class="fa fa-chevron-left"></i> java面向对象
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/leo.github.io/2016/06/14/React问题/" rel="prev" title="React问题记录">
-                React问题记录 <i class="fa fa-chevron-right"></i>
+              <a href="/leo.github.io/2016/06/12/jav内存分配/" rel="prev" title="java内存分配">
+                java内存分配 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -531,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#设计模式之迭代器模式"><span class="nav-number">1.</span> <span class="nav-text">设计模式之迭代器模式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React-特点"><span class="nav-number">1.</span> <span class="nav-text">React 特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsx-基础语法"><span class="nav-number">2.</span> <span class="nav-text">jsx 基础语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#非-DOM-属性"><span class="nav-number">3.</span> <span class="nav-text">非 DOM 属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React-diff-算法流程"><span class="nav-number">4.</span> <span class="nav-text">React diff 算法流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JSX-解释器架构介绍"><span class="nav-number">5.</span> <span class="nav-text">JSX 解释器架构介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React-组件的生命周期"><span class="nav-number">6.</span> <span class="nav-text">React 组件的生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#属性和状态"><span class="nav-number">7.</span> <span class="nav-text">属性和状态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件处理"><span class="nav-number">8.</span> <span class="nav-text">事件处理</span></a></li></ol></div>
             
 
           </div>

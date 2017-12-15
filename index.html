@@ -257,7 +257,152 @@
   
   
 
-  <article class="post post-type-编程" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://leo-zn.github.io/leo.github.io/leo.github.io/2016/06/14/React问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="leo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/leo.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="leo博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/leo.github.io/2016/06/14/React问题/" itemprop="url">React问题记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-14T15:16:45+08:00">
+                2016-06-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo.github.io/categories/React问题记录/" itemprop="url" rel="index">
+                    <span itemprop="name">React问题记录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>在 React 中循环创建节点<ul>
+<li>在 React 循环不能使用 forEach 循环创建元素, 因为 forEach 没有返回值, 使用 map 方法遍历可以返回遍历创建的元素! </li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -304,6 +449,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo.github.io/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
 
@@ -331,8 +498,919 @@
       
         
           
-            <h1 id="23种设计模式"><a href="#23种设计模式" class="headerlink" title="23种设计模式"></a>23种设计模式</h1><h1 id="iterator-迭代器模式"><a href="#iterator-迭代器模式" class="headerlink" title="iterator 迭代器模式"></a>iterator 迭代器模式</h1><h3 id="概念-将循环的变量作用抽象化-通用化形成的模式"><a href="#概念-将循环的变量作用抽象化-通用化形成的模式" class="headerlink" title="概念: 将循环的变量作用抽象化, 通用化形成的模式!"></a>概念: 将循环的变量作用抽象化, 通用化形成的模式!</h3><h3 id="作用-将迭代器与具体的迭代对象分离-即使修改迭代对象-也可以保证迭代器依然可以使用"><a href="#作用-将迭代器与具体的迭代对象分离-即使修改迭代对象-也可以保证迭代器依然可以使用" class="headerlink" title="作用: 将迭代器与具体的迭代对象分离, 即使修改迭代对象, 也可以保证迭代器依然可以使用."></a>作用: 将迭代器与具体的迭代对象分离, 即使修改迭代对象, 也可以保证迭代器依然可以使用.</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">示例: 普通的数组遍历</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> [] int1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; int1.length; i++) &#123;</span><br><span class="line">		System.out.println(int1[i]);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<p>将遍历抽象为一个类, 这样就可以复用这个迭代器<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Iterator</span></span></span><br></pre></td></tr></table></figure></p>
+            <h1 id="设计模式之迭代器模式"><a href="#设计模式之迭代器模式" class="headerlink" title="设计模式之迭代器模式"></a>设计模式之迭代器模式</h1><p>```</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://leo-zn.github.io/leo.github.io/leo.github.io/2016/06/12/java面向对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="leo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/leo.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="leo博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/leo.github.io/2016/06/12/java面向对象/" itemprop="url">java面向对象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-12T14:11:42+08:00">
+                2016-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo.github.io/categories/javaSE/" itemprop="url" rel="index">
+                    <span itemprop="name">javaSE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="java面向对象"><a href="#java面向对象" class="headerlink" title="java面向对象"></a>java面向对象</h2><ul>
+<li><p>面向对象特征</p>
+<ul>
+<li>封装</li>
+<li>继承</li>
+<li>多态</li>
+</ul>
+</li>
+<li><p>类和对象的区别</p>
+<ul>
+<li>对象是类的具体实现, 类本身只是一种抽象, 一种规范;</li>
+<li>一个类可以有多个实例, 也就是一个类能够有多个对应的对象</li>
+</ul>
+</li>
+</ul>
+<h4 id="成员变量和局部变量的区别"><a href="#成员变量和局部变量的区别" class="headerlink" title="成员变量和局部变量的区别"></a>成员变量和局部变量的区别</h4><ul>
+<li>类中的位置不同:<ul>
+<li>成员变量: 在类中方法外</li>
+<li>局部变量: 在方法定义中或者方法声明上</li>
+</ul>
+</li>
+<li>在内存中的位置不同<ul>
+<li>成员变量: 在堆内存中</li>
+<li>局部变量: 在栈内存中</li>
+</ul>
+</li>
+<li>生命周期不同:<ul>
+<li>成员变量: 随着对象的创建而创建, 随对象的消失而消失</li>
+<li>局部变量: 随着方法的调用而存在, 随着方法的调用完毕而消失</li>
+</ul>
+</li>
+<li>在部变量名称可以和成员变量名称一样, 在方法中使用的时候, 采用的是就近原则</li>
+</ul>
+<h4 id="基本类型和引用数据类型"><a href="#基本类型和引用数据类型" class="headerlink" title="基本类型和引用数据类型"></a>基本类型和引用数据类型</h4><ul>
+<li>基本数据类型<ul>
+<li>char, byte, short, int, long, float, double, boolean</li>
+</ul>
+</li>
+<li>引用数据类型<ul>
+<li>数组, 类, 接口, 枚举</li>
+</ul>
+</li>
+</ul>
+<h4 id="匿名对象"><a href="#匿名对象" class="headerlink" title="匿名对象"></a>匿名对象</h4><ul>
+<li>没用名字的对象<ul>
+<li>在仅仅使用一次的时候, 可以使用匿名对象, 可以减少代码!</li>
+</ul>
+</li>
+</ul>
+<h4 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h4><ul>
+<li>概述<ul>
+<li>隐藏对象属性和实现细节, 仅对外提供公共访问方式</li>
+</ul>
+</li>
+<li>封装好处<ul>
+<li>提高安全性</li>
+<li>提高代码复用性</li>
+</ul>
+</li>
+<li>封装原则<ul>
+<li>将不需要对外提供的内容都隐藏起来</li>
+<li>把属性隐藏起来, 提供公共的方法对其访问</li>
+</ul>
+</li>
+</ul>
+<h4 id="构造方法-constructor"><a href="#构造方法-constructor" class="headerlink" title="构造方法 constructor"></a>构造方法 constructor</h4><ul>
+<li>概述<ul>
+<li>给对象的数据(属性)进行初始化</li>
+</ul>
+</li>
+<li>特点<ul>
+<li>方法名与类名相同(大小也要与类名一致)</li>
+<li>没有返回值类型, 连 void 都没有</li>
+<li>没有具体的返回值 return</li>
+</ul>
+</li>
+</ul>
+<h4 id="构造方法的重载"><a href="#构造方法的重载" class="headerlink" title="构造方法的重载"></a>构造方法的重载</h4><ul>
+<li>重载: 方法名相同, 与返回值类型无关, 只看参数列表</li>
+<li>注意事项<ul>
+<li>如果我们没有给出构造方法, 系统将自动提供一个无参构造方法</li>
+<li>如果我们给出了构造方法, 系统将不再提供默认的无参构造方法</li>
+<li>如果我们给出了构造方法, 但是还想要使用无惨的构造方法, 就必须自己给出, 建议永远自己给出无参构造</li>
+</ul>
+</li>
+</ul>
+<h4 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h4><ul>
+<li>子类和父类都有一模一样的方法, 就是方法重写</li>
+<li><p>注意事项</p>
+<ul>
+<li>父类私有方法不能重写, 因为它根本不能继承下来</li>
+<li>子类重写父类方法时, 访问的权限不能更低</li>
+<li>父类的静态方法, 子类必须重写</li>
+</ul>
+<h4 id="static-关键字"><a href="#static-关键字" class="headerlink" title="static 关键字"></a>static 关键字</h4><ul>
+<li>随着类的加载而加载</li>
+<li>优于对象存在</li>
+<li>被类的所有对象共享</li>
+<li>可以通过类名直接调用</li>
+<li>注意事项 <ul>
+<li>静态方法中没有 this 关键字, 因为静态方法是随着类加载而加载, this 是随着对象的创建而创建</li>
+<li>静态方法只能访问静态的成员变量和静态的成员方法,即静态只能访问静态</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="静态变量和成员变量的区别"><a href="#静态变量和成员变量的区别" class="headerlink" title="静态变量和成员变量的区别"></a>静态变量和成员变量的区别</h4><ul>
+<li>静态变量也叫类变量, 成员变量也叫对象变量</li>
+<li>所属不同<ul>
+<li>静态变量属于类, 也叫类变量</li>
+<li>成员变量属于对象, 所以也称之为实例变量</li>
+</ul>
+</li>
+<li>内存中存储位置不同<ul>
+<li>静态变量存储于方法区的静态区</li>
+<li>成员变量存储于堆内存</li>
+</ul>
+</li>
+<li>内存初选时间不同<ul>
+<li>静态变量随着类的加载而加载, 随着类的消失而消失</li>
+<li>成员变量随着对象的创建而创建, 随着对象的消失而消失</li>
+</ul>
+</li>
+<li>调用不同<ul>
+<li>静态变量可以通过类名调用,也可以通过对象调用</li>
+<li>成员变量只能通过对象调用</li>
+</ul>
+</li>
+<li>制作工具类, 使用静态方法, 不用 new 直接调用</li>
+</ul>
+<h4 id="main-方法解释"><a href="#main-方法解释" class="headerlink" title="main 方法解释"></a>main 方法解释</h4><ul>
+<li>public: 被 JVM 调用, 访问权限足够大</li>
+<li>static: 被 JVM 调用, 不用创建对象</li>
+<li>void: 不需要给 JVM 返回值</li>
+<li>main: 一个通用的,名称, 不是关键字, 但是被 JVM 识别, JVM 默认会加载 main 方法</li>
+<li>String[] args: 用于键盘录入</li>
+</ul>
+<h4 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h4><ul>
+<li>{} 称之为代码块</li>
+<li>分类<ul>
+<li>局部代码块: 在方法中出现, 限定变量的生命周期, 及早释放内存, 提高内存利用率</li>
+<li>构造代码块: 在类方法外出现, 多个构造方法中相同的代码存在到一起, 每次调用构造都执行, 并且在构造方法前执行</li>
+<li>静态代码块: 在类方法外出现, 并加上 static 修饰, 用于给类进行初始化, 在加载时候就执行, 并且只执行一次, 一般用于加载驱动</li>
+<li>同步代码块: </li>
+</ul>
+</li>
+</ul>
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><ul>
+<li>继承好处<ul>
+<li>提高代码复用</li>
+<li>提高代码维护</li>
+<li>让类与类之间产生了关系, 是多态的前提</li>
+</ul>
+</li>
+<li>继承弊端<ul>
+<li>类的耦合性增强了</li>
+</ul>
+</li>
+<li>注意事项<ul>
+<li>子类只能继承父类所有的非私有的成员</li>
+<li>子类不能继承父类的构造方法, 但是可以通过 super (当前对象父类的引用) 来访问父类的构造方法,或者 super. 来访问父类的成员</li>
+</ul>
+</li>
+<li>Java 只支持单继承, 不支持多继承</li>
+</ul>
+<h4 id="final-修饰符"><a href="#final-修饰符" class="headerlink" title="final 修饰符"></a>final 修饰符</h4><ul>
+<li>特点<ul>
+<li>修饰类: 类不能继承</li>
+<li>修饰变量: 变量不再次赋值, 变成常量</li>
+<li>修饰方法, 方法不能被重写</li>
+</ul>
+</li>
+<li>修饰基本类型,值不能变, 修饰引用类型, 地址不能点, 但是对象中的属性是可以改变的</li>
+</ul>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><ul>
+<li>特点<ul>
+<li>内部类可以直接访问外部的成员, 包括私有</li>
+<li>外部类要访问内部类的成员, 必须创建对象</li>
+<li>new外部类().new内部类().属性</li>
+</ul>
+</li>
+</ul>
+<h4 id="和-equals-的区别"><a href="#和-equals-的区别" class="headerlink" title="== 和 equals 的区别"></a>== 和 equals 的区别</h4><ul>
+<li>== 是一个比较运算符, 既可以比较基本数据类型, 也可以比较应用数据类型, 基本能数据类型比较值, 引用数据类型比较的是地址值</li>
+<li>equals 方法, 只能用来比较引用数据类型, 所有的对象都会继承 Object 类中的方法, 如果没有重写, equals 和 == 比较引用数据类型无区别, 重写<br>后的 equals 比较的是对象中的属性</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://leo-zn.github.io/leo.github.io/leo.github.io/2016/06/12/java字符串/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="leo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/leo.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="leo博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/leo.github.io/2016/06/12/java字符串/" itemprop="url">java 字符串StringBuffer</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-12T14:11:42+08:00">
+                2016-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo.github.io/categories/javaSE/" itemprop="url" rel="index">
+                    <span itemprop="name">javaSE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="StringBuffer-类"><a href="#StringBuffer-类" class="headerlink" title="StringBuffer 类"></a>StringBuffer 类</h1><h4 id="StringBuffer"><a href="#StringBuffer" class="headerlink" title="StringBuffer"></a>StringBuffer</h4><ul>
+<li>线程安全的可变字符序列</li>
+<li>StringBuffer 和 String 的区别<ul>
+<li>String 是一个不可变得字符序列</li>
+<li>StringBuffer 是一个可变的字符序列</li>
+</ul>
+</li>
+<li>StringBuffer 的构造方法<ul>
+<li>public StringBuffer(): 无参构造</li>
+<li>public StringBuffer(int capacity): 指定容量的字符串缓冲区对象</li>
+<li>public StringBuffer(String str): 指定字符串内容的字符串缓冲区对象</li>
+</ul>
+</li>
+</ul>
+<h4 id="常见功能"><a href="#常见功能" class="headerlink" title="常见功能"></a>常见功能</h4><ul>
+<li>append(String str)<ul>
+<li>把任意数据类型添加到字符创缓冲区里面, 并返回字符串缓冲区本身</li>
+</ul>
+</li>
+<li>insert(int offset, String str)<ul>
+<li>在指定位置把任意类型的数据插入到字符串缓冲区里面, 并返回字符串缓冲区本身</li>
+</ul>
+</li>
+<li>deleteCharAt(int index)<ul>
+<li>删除指定位置的字符, 并返回本身</li>
+</ul>
+</li>
+<li>delete(int start, int end)<ul>
+<li>删除从指定位置开始 和结束的内容, 并返回本身</li>
+</ul>
+</li>
+<li>replace(int start, int end, String str)<ul>
+<li>替换指定的字符</li>
+</ul>
+</li>
+<li><p>reverse()</p>
+<ul>
+<li>字符串反转</li>
+</ul>
+</li>
+<li><p>substring(int start)</p>
+<ul>
+<li>从指定位置截取到末尾</li>
+</ul>
+</li>
+<li>substring(int start, int end)<ul>
+<li>截取指定位置</li>
+</ul>
+</li>
+</ul>
+<h4 id="StringBuffer-和-String-的相互转换"><a href="#StringBuffer-和-String-的相互转换" class="headerlink" title="StringBuffer 和 String 的相互转换"></a>StringBuffer 和 String 的相互转换</h4><ul>
+<li>String – StringBuffer<ul>
+<li>通过构造方法</li>
+<li>通过 append() 方法</li>
+</ul>
+</li>
+<li>StringBuffer – String<ul>
+<li>通过构造方法</li>
+<li>通过 toString 方法</li>
+<li>通过 subString(0, length) 方法</li>
+</ul>
+</li>
+</ul>
+<h4 id="StringBuffer-和-StringBuilder"><a href="#StringBuffer-和-StringBuilder" class="headerlink" title="StringBuffer 和 StringBuilder"></a>StringBuffer 和 StringBuilder</h4><ul>
+<li>StringBuffer  是线程安全的, 效率低</li>
+<li>StringBuilder 线程不安全的, 效率高</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://leo-zn.github.io/leo.github.io/leo.github.io/2016/06/12/jav内存分配/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="leo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/leo.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="leo博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/leo.github.io/2016/06/12/jav内存分配/" itemprop="url">java内存分配</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-12T14:11:42+08:00">
+                2016-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo.github.io/categories/javaSE/" itemprop="url" rel="index">
+                    <span itemprop="name">javaSE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="java中内存分配"><a href="#java中内存分配" class="headerlink" title="java中内存分配"></a>java中内存分配</h2><ul>
+<li>栈 <ul>
+<li>存储局部变量</li>
+</ul>
+</li>
+<li>堆<ul>
+<li>存储 new 出来的数组或对象</li>
+</ul>
+</li>
+<li>方法区<ul>
+<li>存储方法</li>
+</ul>
+</li>
+<li>寄存器<ul>
+<li>给 CPU 使用</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://leo-zn.github.io/leo.github.io/leo.github.io/2016/06/12/React/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="leo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/leo.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="leo博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/leo.github.io/2016/06/12/React/" itemprop="url">React</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-12T14:11:42+08:00">
+                2016-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo.github.io/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="React-特点"><a href="#React-特点" class="headerlink" title="React 特点"></a>React 特点</h1><ol>
+<li>简单</li>
+<li>声明式<br>React 的核心是组件, 组件的设计目的是<code>提高代码复用率</code>, <code>降低代码的测试难道</code>, <code>降低代码复杂度</code>;</li>
+</ol>
+<h1 id="jsx-基础语法"><a href="#jsx-基础语法" class="headerlink" title="jsx 基础语法"></a>jsx 基础语法</h1><ol>
+<li>首字母大写代表 React 组件, 小写代表是 DOM 元素;</li>
+<li>React 组件支持嵌套;</li>
+<li><code>{}</code> 里面可以写 javascript 求值表达式代码 if 判断需要使用 三元表达式或者短路运算符;</li>
+<li>组件驼峰命名;</li>
+<li>html 和 class 是 javascript 的关键字, 需要使用 htmlFor 和 className 代替;</li>
+<li>HTML 中写字符串 <code>{&quot; &quot;}</code> 或者 不用 <code>{}</code>, 直接写;</li>
+<li>style = <code>{}</code>, 必须是一个对象, 而且只能写在 HTML 的标签中, 写在标签对应得组件是无效的,只能当属性传递下去!;</li>
+</ol>
+<h1 id="非-DOM-属性"><a href="#非-DOM-属性" class="headerlink" title="非 DOM 属性"></a>非 DOM 属性</h1><ol>
+<li>dangerouslySetInnerHTML: 在 JSX 中直接插入 HTML, 用于动态 DOM 元素, 可能导致 XSS 攻击;</li>
+<li>ref: 父组件引用子组件;<br> 在节点中设置 ref=”自定义”, 然后在其他位置或方法可以获取该节点的  DOM 实例节点, this.refs.”自定义”.属性;</li>
+<li>key: 提高渲染性能,<br>  React 并不能知道某个节点在位置不同的情况下,在组件中是否能复用, 导致插入节点使得可复用的节点无法复用, 引入 key 可以复用这个节点, 因为React 会比较 key 是否相同, 如果相同,则复用改节点, 直接在前插入一个新节点, 在列表中,应该使用 key 以提高渲染性能;</li>
+</ol>
+<h1 id="React-diff-算法流程"><a href="#React-diff-算法流程" class="headerlink" title="React diff 算法流程"></a>React diff 算法流程</h1><ol>
+<li>比较节点是否相同, 相同进入下一步, 不相同则直接生成新的节点;</li>
+<li>判断是否是 DOM 还是 自定义的节点, 进入下一步;</li>
+<li>比较节点的属性及ID, class, 相同结束比较,如果不同, 这重新设置这些属性不会重新渲染,如果是组件的话,重新设置状态;</li>
+</ol>
+<h1 id="JSX-解释器架构介绍"><a href="#JSX-解释器架构介绍" class="headerlink" title="JSX 解释器架构介绍"></a>JSX 解释器架构介绍</h1><ol>
+<li>入口函数 -&gt; 加载模块 -&gt; 解析 JSX -&gt; 执行 JS<br> 因为所有的程序运行在浏览器中, 大量的 JSX 会有性能问题, 解决办法是,<code>提前编译 JSX</code></li>
+</ol>
+<h1 id="React-组件的生命周期"><a href="#React-组件的生命周期" class="headerlink" title="React 组件的生命周期"></a>React 组件的生命周期</h1><ol>
+<li>组件本质上是<code>状态机</code>;</li>
+<li>钩子函数<ol>
+<li>初始化</li>
+</ol>
+<ul>
+<li>getDefaultProps: 第一个实例创建时调用,只调用一次, 实例之间<code>共享引用</code>;</li>
+<li>getInitialState: 初始化每个实例特有的<code>状态</code>;<br>以上两个在ES6 中用 constructor 执行</li>
+<li>componentWillMount: 组件开始挂载 DOM 上, render 之前最后一次修改状态的机会;</li>
+<li>render: 渲染函数, 只能访问 this.props 和 this.state, 只有一个顶层组件, 不允许修改状态和 DOM 输出;</li>
+<li>componetDidMount: 成功渲染并完成真实 DOM 之后触发, 所有的 DOM 操作, 都应该在这里使用, 因为,在此之前, DOM 并没有渲染完成!</li>
+</ul>
+<ol>
+<li>运行中</li>
+</ol>
+<ul>
+<li>componentWillReceiveProps: 在父组件修改属性触发, 在传送新的属性到达组件之前;</li>
+<li>shouldComponentUpdate: 返回 false 会阻止 render 函数运行, 避免不需要的 diff 用于提高性能;</li>
+<li>componentWillUpdate: 不能修改属性和状态;</li>
+<li>render: 渲染函数, 只能访问 this.props 和 this.state, 只有一个顶层组件, 不允许修改状态和 DOM 输出;</li>
+<li>componetDidUpdate: 可以修改 DOM;</li>
+</ul>
+<ol>
+<li>销毁</li>
+</ol>
+<ul>
+<li>componentWillUnmont: 组件销毁时触发;</li>
+</ul>
+</li>
+</ol>
+<h1 id="属性和状态"><a href="#属性和状态" class="headerlink" title="属性和状态"></a>属性和状态</h1><ol>
+<li><p>porps 可以接受由父组件中传来的属性;</p>
+</li>
+<li><p>state 状态管理对象,当对象中的任意属性改变, 那么他会调用 render 方法, 重新渲染!</p>
+<ul>
+<li>重新设置状态只能用 setState() 方法来修改</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>区别</li>
+<li>当运行时需要改变的属性, 必须使用过 state, 不能使用 props;</li>
+<li>props 是自顶向下流动的, 组件不能改变自身的 porps;</li>
+</ul>
+<h1 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h1><ul>
+<li><code>onClick={this.handleClick.bind(this)}</code></li>
+</ul>
+<ul>
+<li>on后面的事件名字必须大写;</li>
+<li><code>{}</code>, 里面的方法不用加()调用;</li>
+<li>bind(this), 将改组件的对象传入, 这里就能在方法里用 this 来获取到改组件的属性: 例如 this.refs;</li>
+<li>调用方法, 默认会传入一个事件对象, 可以在该方法中获取;</li>
+<li>bind(this, value1), 后面可以传入一个值,这样可以在该调用的函数中获取, (value1, e), 事件参数,默认是最后一位的, 前面的参数才是传递过来的参数;</li>
+<li>子组件的参数传递给父组件, 是父组件把自己的函数当做属性传递给子组件, 然后子组件在自己的事件中, 调用父组件传递过来的函数, 在该函数中,可以拿到事件对象 e, e.target, 就是子组件;</li>
+</ul>
+<ul>
+<li>Mixin 的使用<br>  Mixin 的目的是<code>横向抽离</code>出组件的相似代码;</li>
+</ul>
 
           
         
@@ -414,14 +1492,32 @@
               
                 <a href="/leo.github.io/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/leo.github.io/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/leo.github.io/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>

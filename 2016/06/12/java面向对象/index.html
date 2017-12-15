@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/leo.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/leo.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/leo.github.io/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/leo.github.io/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/leo.github.io/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/leo.github.io/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/leo.github.io/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javaSE," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="java面向对象 面向对象特征  封装 继承 多态   类和对象的区别  对象是类的具体实现, 类本身只是一种抽象, 一种规范; 一个类可以有多个实例, 也就是一个类能够有多个对应的对象    成员变量和局部变量的区别 类中的位置不同: 成员变量: 在类中方法外 局部变量: 在方法定义中或者方法声明上   在内存中的位">
+<meta name="keywords" content="javaSE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java面向对象">
+<meta property="og:url" content="https://leo-zn.github.io/leo.github.io/2016/06/12/java面向对象/index.html">
+<meta property="og:site_name" content="leo博客">
+<meta property="og:description" content="java面向对象 面向对象特征  封装 继承 多态   类和对象的区别  对象是类的具体实现, 类本身只是一种抽象, 一种规范; 一个类可以有多个实例, 也就是一个类能够有多个对应的对象    成员变量和局部变量的区别 类中的位置不同: 成员变量: 在类中方法外 局部变量: 在方法定义中或者方法声明上   在内存中的位置不同 成员变量: 在堆内存中 局部变量: 在栈内存中   生命周期不同: 成员">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-14T15:17:02.537Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java面向对象">
+<meta name="twitter:description" content="java面向对象 面向对象特征  封装 继承 多态   类和对象的区别  对象是类的具体实现, 类本身只是一种抽象, 一种规范; 一个类可以有多个实例, 也就是一个类能够有多个对应的对象    成员变量和局部变量的区别 类中的位置不同: 成员变量: 在类中方法外 局部变量: 在方法定义中或者方法声明上   在内存中的位置不同 成员变量: 在堆内存中 局部变量: 在栈内存中   生命周期不同: 成员">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/leo.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://leo-zn.github.io/leo.github.io/2016/06/12/java面向对象/"/>
+
+
+
+
+
+  <title>java面向对象 | leo博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/leo.github.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">leo博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/leo.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/leo.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/leo.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/leo.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/leo.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://leo-zn.github.io/leo.github.io/leo.github.io/2016/06/12/java面向对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="leo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/leo.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="leo博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">java面向对象</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-12T14:11:42+08:00">
+                2016-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo.github.io/categories/javaSE/" itemprop="url" rel="index">
+                    <span itemprop="name">javaSE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="java面向对象"><a href="#java面向对象" class="headerlink" title="java面向对象"></a>java面向对象</h2><ul>
+<li><p>面向对象特征</p>
+<ul>
+<li>封装</li>
+<li>继承</li>
+<li>多态</li>
+</ul>
+</li>
+<li><p>类和对象的区别</p>
+<ul>
+<li>对象是类的具体实现, 类本身只是一种抽象, 一种规范;</li>
+<li>一个类可以有多个实例, 也就是一个类能够有多个对应的对象</li>
+</ul>
+</li>
+</ul>
+<h4 id="成员变量和局部变量的区别"><a href="#成员变量和局部变量的区别" class="headerlink" title="成员变量和局部变量的区别"></a>成员变量和局部变量的区别</h4><ul>
+<li>类中的位置不同:<ul>
+<li>成员变量: 在类中方法外</li>
+<li>局部变量: 在方法定义中或者方法声明上</li>
+</ul>
+</li>
+<li>在内存中的位置不同<ul>
+<li>成员变量: 在堆内存中</li>
+<li>局部变量: 在栈内存中</li>
+</ul>
+</li>
+<li>生命周期不同:<ul>
+<li>成员变量: 随着对象的创建而创建, 随对象的消失而消失</li>
+<li>局部变量: 随着方法的调用而存在, 随着方法的调用完毕而消失</li>
+</ul>
+</li>
+<li>在部变量名称可以和成员变量名称一样, 在方法中使用的时候, 采用的是就近原则</li>
+</ul>
+<h4 id="基本类型和引用数据类型"><a href="#基本类型和引用数据类型" class="headerlink" title="基本类型和引用数据类型"></a>基本类型和引用数据类型</h4><ul>
+<li>基本数据类型<ul>
+<li>char, byte, short, int, long, float, double, boolean</li>
+</ul>
+</li>
+<li>引用数据类型<ul>
+<li>数组, 类, 接口, 枚举</li>
+</ul>
+</li>
+</ul>
+<h4 id="匿名对象"><a href="#匿名对象" class="headerlink" title="匿名对象"></a>匿名对象</h4><ul>
+<li>没用名字的对象<ul>
+<li>在仅仅使用一次的时候, 可以使用匿名对象, 可以减少代码!</li>
+</ul>
+</li>
+</ul>
+<h4 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h4><ul>
+<li>概述<ul>
+<li>隐藏对象属性和实现细节, 仅对外提供公共访问方式</li>
+</ul>
+</li>
+<li>封装好处<ul>
+<li>提高安全性</li>
+<li>提高代码复用性</li>
+</ul>
+</li>
+<li>封装原则<ul>
+<li>将不需要对外提供的内容都隐藏起来</li>
+<li>把属性隐藏起来, 提供公共的方法对其访问</li>
+</ul>
+</li>
+</ul>
+<h4 id="构造方法-constructor"><a href="#构造方法-constructor" class="headerlink" title="构造方法 constructor"></a>构造方法 constructor</h4><ul>
+<li>概述<ul>
+<li>给对象的数据(属性)进行初始化</li>
+</ul>
+</li>
+<li>特点<ul>
+<li>方法名与类名相同(大小也要与类名一致)</li>
+<li>没有返回值类型, 连 void 都没有</li>
+<li>没有具体的返回值 return</li>
+</ul>
+</li>
+</ul>
+<h4 id="构造方法的重载"><a href="#构造方法的重载" class="headerlink" title="构造方法的重载"></a>构造方法的重载</h4><ul>
+<li>重载: 方法名相同, 与返回值类型无关, 只看参数列表</li>
+<li>注意事项<ul>
+<li>如果我们没有给出构造方法, 系统将自动提供一个无参构造方法</li>
+<li>如果我们给出了构造方法, 系统将不再提供默认的无参构造方法</li>
+<li>如果我们给出了构造方法, 但是还想要使用无惨的构造方法, 就必须自己给出, 建议永远自己给出无参构造</li>
+</ul>
+</li>
+</ul>
+<h4 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h4><ul>
+<li>子类和父类都有一模一样的方法, 就是方法重写</li>
+<li><p>注意事项</p>
+<ul>
+<li>父类私有方法不能重写, 因为它根本不能继承下来</li>
+<li>子类重写父类方法时, 访问的权限不能更低</li>
+<li>父类的静态方法, 子类必须重写</li>
+</ul>
+<h4 id="static-关键字"><a href="#static-关键字" class="headerlink" title="static 关键字"></a>static 关键字</h4><ul>
+<li>随着类的加载而加载</li>
+<li>优于对象存在</li>
+<li>被类的所有对象共享</li>
+<li>可以通过类名直接调用</li>
+<li>注意事项 <ul>
+<li>静态方法中没有 this 关键字, 因为静态方法是随着类加载而加载, this 是随着对象的创建而创建</li>
+<li>静态方法只能访问静态的成员变量和静态的成员方法,即静态只能访问静态</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="静态变量和成员变量的区别"><a href="#静态变量和成员变量的区别" class="headerlink" title="静态变量和成员变量的区别"></a>静态变量和成员变量的区别</h4><ul>
+<li>静态变量也叫类变量, 成员变量也叫对象变量</li>
+<li>所属不同<ul>
+<li>静态变量属于类, 也叫类变量</li>
+<li>成员变量属于对象, 所以也称之为实例变量</li>
+</ul>
+</li>
+<li>内存中存储位置不同<ul>
+<li>静态变量存储于方法区的静态区</li>
+<li>成员变量存储于堆内存</li>
+</ul>
+</li>
+<li>内存初选时间不同<ul>
+<li>静态变量随着类的加载而加载, 随着类的消失而消失</li>
+<li>成员变量随着对象的创建而创建, 随着对象的消失而消失</li>
+</ul>
+</li>
+<li>调用不同<ul>
+<li>静态变量可以通过类名调用,也可以通过对象调用</li>
+<li>成员变量只能通过对象调用</li>
+</ul>
+</li>
+<li>制作工具类, 使用静态方法, 不用 new 直接调用</li>
+</ul>
+<h4 id="main-方法解释"><a href="#main-方法解释" class="headerlink" title="main 方法解释"></a>main 方法解释</h4><ul>
+<li>public: 被 JVM 调用, 访问权限足够大</li>
+<li>static: 被 JVM 调用, 不用创建对象</li>
+<li>void: 不需要给 JVM 返回值</li>
+<li>main: 一个通用的,名称, 不是关键字, 但是被 JVM 识别, JVM 默认会加载 main 方法</li>
+<li>String[] args: 用于键盘录入</li>
+</ul>
+<h4 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h4><ul>
+<li>{} 称之为代码块</li>
+<li>分类<ul>
+<li>局部代码块: 在方法中出现, 限定变量的生命周期, 及早释放内存, 提高内存利用率</li>
+<li>构造代码块: 在类方法外出现, 多个构造方法中相同的代码存在到一起, 每次调用构造都执行, 并且在构造方法前执行</li>
+<li>静态代码块: 在类方法外出现, 并加上 static 修饰, 用于给类进行初始化, 在加载时候就执行, 并且只执行一次, 一般用于加载驱动</li>
+<li>同步代码块: </li>
+</ul>
+</li>
+</ul>
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><ul>
+<li>继承好处<ul>
+<li>提高代码复用</li>
+<li>提高代码维护</li>
+<li>让类与类之间产生了关系, 是多态的前提</li>
+</ul>
+</li>
+<li>继承弊端<ul>
+<li>类的耦合性增强了</li>
+</ul>
+</li>
+<li>注意事项<ul>
+<li>子类只能继承父类所有的非私有的成员</li>
+<li>子类不能继承父类的构造方法, 但是可以通过 super (当前对象父类的引用) 来访问父类的构造方法,或者 super. 来访问父类的成员</li>
+</ul>
+</li>
+<li>Java 只支持单继承, 不支持多继承</li>
+</ul>
+<h4 id="final-修饰符"><a href="#final-修饰符" class="headerlink" title="final 修饰符"></a>final 修饰符</h4><ul>
+<li>特点<ul>
+<li>修饰类: 类不能继承</li>
+<li>修饰变量: 变量不再次赋值, 变成常量</li>
+<li>修饰方法, 方法不能被重写</li>
+</ul>
+</li>
+<li>修饰基本类型,值不能变, 修饰引用类型, 地址不能点, 但是对象中的属性是可以改变的</li>
+</ul>
+<h4 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h4><ul>
+<li>特点<ul>
+<li>内部类可以直接访问外部的成员, 包括私有</li>
+<li>外部类要访问内部类的成员, 必须创建对象</li>
+<li>new外部类().new内部类().属性</li>
+</ul>
+</li>
+</ul>
+<h4 id="和-equals-的区别"><a href="#和-equals-的区别" class="headerlink" title="== 和 equals 的区别"></a>== 和 equals 的区别</h4><ul>
+<li>== 是一个比较运算符, 既可以比较基本数据类型, 也可以比较应用数据类型, 基本能数据类型比较值, 引用数据类型比较的是地址值</li>
+<li>equals 方法, 只能用来比较引用数据类型, 所有的对象都会继承 Object 类中的方法, 如果没有重写, equals 和 == 比较引用数据类型无区别, 重写<br>后的 equals 比较的是对象中的属性</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="" alt="leo wechat" style="width: 200px; max-width: 100%;"/>
+    <div></div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/leo.github.io/tags/javaSE/" rel="tag"># javaSE</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/leo.github.io/2016/06/12/java字符串/" rel="next" title="java 字符串StringBuffer">
+                <i class="fa fa-chevron-left"></i> java 字符串StringBuffer
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/leo.github.io/2016/06/12/23种设计模式/" rel="prev" title="设计模式">
+                设计模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">leo</p>
+              <p class="site-description motion-element" itemprop="description">千里之行, 始于足下</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/leo.github.io/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/leo.github.io/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/leo.github.io/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java面向对象"><span class="nav-number">1.</span> <span class="nav-text">java面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#成员变量和局部变量的区别"><span class="nav-number">1.0.1.</span> <span class="nav-text">成员变量和局部变量的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本类型和引用数据类型"><span class="nav-number">1.0.2.</span> <span class="nav-text">基本类型和引用数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名对象"><span class="nav-number">1.0.3.</span> <span class="nav-text">匿名对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#封装"><span class="nav-number">1.0.4.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造方法-constructor"><span class="nav-number">1.0.5.</span> <span class="nav-text">构造方法 constructor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造方法的重载"><span class="nav-number">1.0.6.</span> <span class="nav-text">构造方法的重载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法重写"><span class="nav-number">1.0.7.</span> <span class="nav-text">方法重写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#static-关键字"><span class="nav-number">1.0.8.</span> <span class="nav-text">static 关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态变量和成员变量的区别"><span class="nav-number">1.0.9.</span> <span class="nav-text">静态变量和成员变量的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#main-方法解释"><span class="nav-number">1.0.10.</span> <span class="nav-text">main 方法解释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码块"><span class="nav-number">1.0.11.</span> <span class="nav-text">代码块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承"><span class="nav-number">1.0.12.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final-修饰符"><span class="nav-number">1.0.13.</span> <span class="nav-text">final 修饰符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内部类"><span class="nav-number">1.0.14.</span> <span class="nav-text">内部类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#和-equals-的区别"><span class="nav-number">1.0.15.</span> <span class="nav-text">== 和 equals 的区别</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">leo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/leo.github.io/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/leo.github.io/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/leo.github.io/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/leo.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/leo.github.io/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/leo.github.io/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/leo.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
