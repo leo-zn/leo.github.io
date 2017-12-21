@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/leo.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/leo.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/leo.github.io/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/leo.github.io/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/leo.github.io/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/leo.github.io/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/leo.github.io/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="React库," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="开始 用 npm 安装 immutable 。 npm install immutable 然后在任何模块中引入 var Immutable = require(‘immutable’);var map1 = Immutable.Map({a:1, b:2, c:3});var map2 = map1.set(‘b’,">
+<meta name="keywords" content="React库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="immutable 笔记">
+<meta property="og:url" content="https://leo-zn.github.io/leo.github.io/2017/01/08/immutable/index.html">
+<meta property="og:site_name" content="leo博客">
+<meta property="og:description" content="开始 用 npm 安装 immutable 。 npm install immutable 然后在任何模块中引入 var Immutable = require(‘immutable’);var map1 = Immutable.Map({a:1, b:2, c:3});var map2 = map1.set(‘b’, 50);map1.get(‘b’); // 2map2.get(‘b’); /">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-18T06:25:12.389Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="immutable 笔记">
+<meta name="twitter:description" content="开始 用 npm 安装 immutable 。 npm install immutable 然后在任何模块中引入 var Immutable = require(‘immutable’);var map1 = Immutable.Map({a:1, b:2, c:3});var map2 = map1.set(‘b’, 50);map1.get(‘b’); // 2map2.get(‘b’); /">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/leo.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://leo-zn.github.io/leo.github.io/2017/01/08/immutable/"/>
+
+
+
+
+
+  <title>immutable 笔记 | leo博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/leo.github.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">leo博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/leo.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/leo.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/leo.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/leo.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/leo.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://leo-zn.github.io/leo.github.io/leo.github.io/2017/01/08/immutable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="leo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/leo.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="leo博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">immutable 笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-08T21:31:49+08:00">
+                2017-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo.github.io/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>开始</p>
+<p>用 npm 安装 immutable 。</p>
+<p>npm install immutable</p>
+<p>然后在任何模块中引入</p>
+<p>var Immutable = require(‘immutable’);<br>var map1 = Immutable.Map({a:1, b:2, c:3});<br>var map2 = map1.set(‘b’, 50);<br>map1.get(‘b’); // 2<br>map2.get(‘b’); // 50</p>
+<p>浏览器</p>
+<p>在浏览器中使用 immutable, 下载 dist/immutable.min.js 或者使用 CDNJS 或 jsDelivr.</p>
+<p>然后在 script 中引入</p>
+<p><code>&amp;lt;script src=&quot;immutable.min.js&quot;&amp;gt;</code>&lt;/script&gt;<br>&lt;script&gt;<br>    var map1 = Immutable.Map({a:1, b:2, c:3});<br>    var map2 = map1.set(‘b’, 50);<br>    map1.get(‘b’); // 2<br>    map2.get(‘b’); // 50<br>&lt;/script&gt;</p>
+<p>AMD 加载器 (RequireJS):</p>
+<p>require([‘./immutable.min.js’], function (Immutable) {<br>    var map1 = Immutable.Map({a:1, b:2, c:3});<br>    var map2 = map1.set(‘b’, 50);<br>    map1.get(‘b’); // 2<br>    map2.get(‘b’); // 50<br>});</p>
+<p>如果使用 browserify，immutable 在浏览器同样适用。<br>TypeScript</p>
+<p>在 TypeScript 中使用 Immutable 的不变集合和序列犹如原生集合一样，获得泛型，异常检查，自动完成的等 IDE 功能。 只需要在文件顶部添加相对路径的引用即可。</p>
+<p>///&lt;reference path=’./node_modules/immutable/dist/immutable.d.ts’/&gt;<br>import Immutable = require(‘immutable’);<br>var map1: Immutable.Map&lt;string, number&gt;;<br>map1 = Immutable.Map({a:1, b:2, c:3});<br>var map2 = map1.set(‘b’, 50);<br>map1.get(‘b’); // 2<br>map2.get(‘b’); // 50</p>
+<p>不变性再思</p>
+<p>跟踪变化和维护状态通常是的应用开发困难。用不可变数据开发应用引导你用不同方式思考数据流。</p>
+<p>在应用中订阅数据事件，导致大量记账开销会损害性能，甚至很严重，并使得应用丢失一致性导致错误孕育温床。如果不应该改变的数据不会变化，那么在模型中监听变化是由上而下单向传递。</p>
+<p>这种数据流模型和 React 的架构是一致的， 并且和 Flux 高度契合。</p>
+<p>如果数据只是传递而不是被监听，便只需要关心当数据改变了以后做什么事，你可以使用等式。</p>
+<p>不变集合应当按 值 来对待， 而不是 对象 。因为对象会随着时间变化，值代表着某一时间的状态。这个原则对理解和正确使用不变数据非常重要。 其中关键在于使用 <a href="docs/#/is">Immutable.is()</a> 或者 .equals() 函数来判断值相等而不是 === 操作符。</p>
+<p>var map1 = Immutable.Map({a:1, b:2, c:3});<br>var map2 = map1.set(‘b’, 2);<br>assert(map1.equals(map2) === true);<br>var map3 = map1.set(‘b’, 50);<br>assert(map1.equals(map3) === false);</p>
+<p>注：为了优化性能， Immutable 在判断不变操作后会尝试返回原集合，使得 === 操作符能正确判断是否值相等。比如这在记忆函数内部，如果深度判断参数是否改变而需要重新计算，花费可能比计算本身更加耗时， === 操作符在 <a href="docs/#/is">Immutable.is</a> 和 .equals() 内部同样被使用以优化性能。</p>
+<p>如果对象不可变，可以通过引用复制来进行克隆。因为引用比对象开销更小，可以节省内存和提升依赖复制的程序的执行速度（比如撤销队列 undo-stack）。</p>
+<p>var map1 = Immutable.Map({a:1, b:2, c:3});<br>var clone = map1;</p>
+<p>JavaScript 风格的 API</p>
+<p>immutable 灵感启发来自 Clojure, Scala, Haskell 和其它函数式编程环境，并专门为 JavaScript 设计，所以仿照 ES6 Array, Map, 和 Set 设计了一套面向对象的接口。</p>
+<p>区别在于，通常会改变集合的方法如 push, set, unshift 或者 splice ，不变集合只会返回一个新的不变集合。至于返回新数组的方法如 slice 或 concat ，不变集合同样返回新的不变集合。</p>
+<p>var list1 = Immutable.List.of(1, 2);<br>var list2 = list1.push(3, 4, 5);<br>var list3 = list2.unshift(0);<br>var list4 = list1.concat(list2, list3);<br>assert(list1.size === 2);<br>assert(list2.size === 5);<br>assert(list3.size === 6);<br>assert(list4.size === 13);<br>assert(list4.get(0) === 1);</p>
+<p>几乎所有 Array 的方法都可以在 <a href="docs/#/List">Immutable.List</a> 找到等价方法，Map 对应 <a href="docs/#/Map">Immutable.Map</a>, 而 Set 对应于 <a href="docs/#/Set">Immutable.Set</a>, 包括 forEach() 和 map() 的集合操作。</p>
+<p>var alpha = Immutable.Map({a:1, b:2, c:3, d:4});<br>alpha.map((v, k) =&gt; k.toUpperCase()).join();<br>// ‘A,B,C,D’</p>
+<p>接受原生 JavaScript 对象</p>
+<p>设计支持现有 JavaScript 代码， immutable 所有 <a href="docs/#/Iterable">Iterable</a> 参数接收原生 JavaScript 数组和对象并性能无损。</p>
+<p>var map1 = Immutable.Map({a:1, b:2, c:3, d:4});<br>var map2 = Immutable.Map({c:10, a:20, t:30});<br>var obj = {d:100, o:200, g:300};<br>var map3 = map1.merge(map2, obj);<br>// Map { a: 20, b: 2, c: 10, d: 100, t: 30, o: 200, g: 300 }</p>
+<p>之所以这样是因为 immutable 将 JavaScript Array 或 Object 以 Iterable 处理。可以利用这点在 JavaScript 对象上完成复杂的集合方法，否则原生 API 比较松散。因为 Seq 惰性执行并且不创建中间结果，操作非常高效。</p>
+<p>var myObject = {a:1,b:2,c:3};<br>Immutable.Seq(myObject).map(x =&gt; x * x).toObject();<br>// { a: 1, b: 4, c: 9 }</p>
+<p>需要强调的是，使用 JS 对象构建 Immutable Maps，对象的属性可以用 去-括号 简写方式访问，然而 Immutable Maps 的类型是不定的。</p>
+<p>var obj = { 1: “one” };<br>Object.keys(obj); // [ “1” ]<br>obj[“1”]; // “one”<br>obj[1];   // “one”</p>
+<p>var map = Immutable.fromJS(obj);<br>map.get(“1”); // “one”<br>map.get(1);   // undefined</p>
+<p>JavaScript 对象的属性访问会被转换成字符串，但是 Immutable Maps 索引支持任何类型，get() 函数的参数不会被改变。<br>转换成原生 JavaScript 对象</p>
+<p>所有 immutable Iterables 可以转换成原生 JavaScript Array 和 Object，使用 toArray() 和 toObject() 是浅拷贝式的，或者使用深拷贝式的 toJS()。所有 Immutable Iterable 实现了 toJSON 行为以兼容 JSON.stringify.</p>
+<p>var deep = Immutable.Map({ a: 1, b: 2, c: Immutable.List.of(3, 4, 5) });<br>deep.toObject() // { a: 1, b: 2, c: List [ 3, 4, 5 ] }<br>deep.toArray() // [ 1, 2, List [ 3, 4, 5 ] ]<br>deep.toJS() // { a: 1, b: 2, c: [ 3, 4, 5 ] }<br>JSON.stringify(deep) // ‘{“a”:1,”b”:2,”c”:[3,4,5]}’</p>
+<p>拥抱 ES6</p>
+<p>Immutable 支持 ES6 最新版本的特性，包括 Iterators, Arrow Functions, Classes, 和 Modules. 它受到 ES6 Map 和 Set 集合的启发。类库编译成 ES3 以兼容所有主流浏览器。</p>
+<p>所有的代码用 ES6 呈现。要想兼容所有浏览器，需要转换成 ES3.</p>
+<p>// ES6<br>foo.map(x =&gt; x <em> x);<br>// ES3<br>foo.map(function (x) { return x </em> x; });</p>
+<p>嵌套结构</p>
+<p>immutable 集合支持深度嵌套，类似JSON</p>
+<p>var nested = Immutable.fromJS({a:{b:{c:[3,4,5]}}});<br>// Map { a: Map { b: Map { c: List [ 3, 4, 5 ] } } }</p>
+<p>一些有用的支持对嵌套数据读写的函数。常用的有 mergeDeep, getIn, setIn, updateIn, 在 <a href="docs/#/List">List</a>, <a href="docs/#/Map">Map</a> 和 <a href="docs/#/OrderedMap">OrderedMap</a> .</p>
+<p>var nested2 = nested.mergeDeep({a:{b:{d:6}}});<br>// Map { a: Map { b: Map { c: List [ 3, 4, 5 ], d: 6 } } }</p>
+<p>nested2.getIn([‘a’, ‘b’, ‘d’]); // 6</p>
+<p>var nested3 = nested2.updateIn([‘a’, ‘b’, ‘d’], value =&gt; value + 1);<br>// Map { a: Map { b: Map { c: List [ 3, 4, 5 ], d: 7 } } }</p>
+<p>var nested4 = nested3.updateIn([‘a’, ‘b’, ‘c’], list =&gt; list.push(6));<br>// Map { a: Map { b: Map { c: List [ 3, 4, 5, 6 ], d: 7 } } }</p>
+<p>惰性 Seq</p>
+<p><a href="docs/#/Seq">Seq</a> 描述了延迟操作，高效的串连 Iterable 方法（比如 map 和 filter ）。</p>
+<p>Seq 是不可变的 — 一旦 Seq 创建便不能修改, 添加, 排列或其它修改. 任何修改操作都会生成一个新的 Sep.</p>
+<p>Seq 是惰性的 — Seq 尽可能少的去相应函数调用。</p>
+<p>比如，下面代码不会发生任何操作，因为结果没有被用到：</p>
+<p>var oddSquares = Immutable.Seq.of(1,2,3,4,5,6,7,8)<br>  .filter(x =&gt; x % 2).map(x =&gt; x * x);</p>
+<p>一旦 Seq 被使用，它只会执行必要的工作。在这个例子中，没有中间数组被创建出来，filter 被调用了三次， map只被调用了两次：</p>
+<p>console.log(oddSquares.get(1)); // 9</p>
+<p>所有集合可以用 .toSeq() 转换成 Sep.</p>
+<p>var seq = Immutable.Map({a:1, b:1, c:1}).toSeq();</p>
+<p>Seq 允许高效串联操作，尤其当需要转换类型的时候（比如转换成 JS 对象）：</p>
+<p>seq.flip().map(key =&gt; key.toUpperCase()).flip().toObject();<br>// Map { A: 1, B: 1, C: 1 }</p>
+<p>还可以表达正常情况会导致内存溢出的逻辑：</p>
+<p>Immutable.Range(1, Infinity)<br>  .skip(1000)<br>  .map(n =&gt; -n)<br>  .filter(n =&gt; n % 2 === 0)<br>  .take(2)<br>  .reduce((r, n) =&gt; r * n, 1);<br>// 1006008</p>
+<p>注： iterable 的迭代顺序是固定的，然而顺序可能不明确，比如 <a href="docs/#/Map">Map</a>。<br>集合等价于数据</p>
+<p>Immutable 等号判断把不变数据结构按照存数据处理，在必要的时候进行深度等号判断。</p>
+<p>var map1 = Immutable.Map({a:1, b:1, c:1});<br>var map2 = Immutable.Map({a:1, b:1, c:1});<br>assert(map1 !== map2); // two different instances<br>assert(Immutable.is(map1, map2)); // have equivalent values<br>assert(map1.equals(map2)); // alternatively use the equals method</p>
+<p><a href="docs/#/is">Immutable.is()</a> 的实现基于 Object.is 上判断都是 immutable 类型且所有的 key 和 value 都相等。<br>批量更改</p>
+<blockquote>
+<p>If a tree falls in the woods, does it make a sound? &gt; &gt; If a pure function mutates some local data in order to produce an immutable &gt; return value, is that ok? &gt; &gt; — Rich Hickey, Clojure</p>
+</blockquote>
+<p>每次修改生成一个新的 immutable 对象有一定性能损耗。如果需要在返回结构之前做一连串的修改， Immutable 提供 withMutations 方法，使批量修复在临时集合拷贝上发生。实际上 Immutable 内部也是这样处理复杂改动的。</p>
+<p>举例说明，通过一次创建完成 list2 而不是3次。</p>
+<p>var list1 = Immutable.List.of(1,2,3);<br>var list2 = list1.withMutations(function (list) {<br>  list.push(4).push(5).push(6);<br>});<br>assert(list1.size === 3);<br>assert(list2.size === 6);</p>
+<p>注： immutable 还提供了 asMutable 和 asImmutable ， 但是只有在 withMutation 不能满足情况的时候使用。注意不要返回一个可变的拷贝，会导致非预知的行为。</p>
+<p>重要！：只有特殊的几个方法能使用 withMutation 其中包括 set, push 和 pop。这些方法能直接作用于内部数据结构，而方法如 map, filter, sort, splice 一定不会修改可修改集合并返回新的不变集合。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="" alt="leo wechat" style="width: 200px; max-width: 100%;"/>
+    <div></div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/leo.github.io/tags/React库/" rel="tag"># React库</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/leo.github.io/2016/12/19/集合框架/" rel="next" title="java 集合框架">
+                <i class="fa fa-chevron-left"></i> java 集合框架
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/leo.github.io/2017/03/12/webpack/" rel="prev" title="webpack2使用记录">
+                webpack2使用记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">leo</p>
+              <p class="site-description motion-element" itemprop="description">千里之行, 始于足下</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/leo.github.io/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">leo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/leo.github.io/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/leo.github.io/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/leo.github.io/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/leo.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/leo.github.io/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/leo.github.io/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/leo.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/leo.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/leo.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/leo.github.io/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/leo.github.io/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/leo.github.io/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/leo.github.io/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/leo.github.io/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javaSE," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="java 集合集合的由来 Collection 数组的长度是固定的, 当添加的元素超过了数组的长度时需要重新定义, 过于麻烦, java 内部提供了集合lei,能存储任意对象, 长度时可变的, 随着元素的增加而增加, 随着元素的减少而减少  集合与数组的区别 数组即可以存储基本数据类型, 也可以存储引用数据类型, 基本">
+<meta name="keywords" content="javaSE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java 集合框架">
+<meta property="og:url" content="https://leo-zn.github.io/leo.github.io/2016/12/19/集合框架/index.html">
+<meta property="og:site_name" content="leo博客">
+<meta property="og:description" content="java 集合集合的由来 Collection 数组的长度是固定的, 当添加的元素超过了数组的长度时需要重新定义, 过于麻烦, java 内部提供了集合lei,能存储任意对象, 长度时可变的, 随着元素的增加而增加, 随着元素的减少而减少  集合与数组的区别 数组即可以存储基本数据类型, 也可以存储引用数据类型, 基本数据类型存储的是值, 应用类型存储的是地址, 但是集合只能存储引用数据类型(对象">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-20T16:10:39.379Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java 集合框架">
+<meta name="twitter:description" content="java 集合集合的由来 Collection 数组的长度是固定的, 当添加的元素超过了数组的长度时需要重新定义, 过于麻烦, java 内部提供了集合lei,能存储任意对象, 长度时可变的, 随着元素的增加而增加, 随着元素的减少而减少  集合与数组的区别 数组即可以存储基本数据类型, 也可以存储引用数据类型, 基本数据类型存储的是值, 应用类型存储的是地址, 但是集合只能存储引用数据类型(对象">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/leo.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://leo-zn.github.io/leo.github.io/2016/12/19/集合框架/"/>
+
+
+
+
+
+  <title>java 集合框架 | leo博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/leo.github.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">leo博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/leo.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/leo.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/leo.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/leo.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/leo.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://leo-zn.github.io/leo.github.io/leo.github.io/2016/12/19/集合框架/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="leo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/leo.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="leo博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">java 集合框架</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-19T20:11:38+08:00">
+                2016-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/leo.github.io/categories/javaSE/" itemprop="url" rel="index">
+                    <span itemprop="name">javaSE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="java-集合"><a href="#java-集合" class="headerlink" title="java 集合"></a>java 集合</h1><h2 id="集合的由来-Collection"><a href="#集合的由来-Collection" class="headerlink" title="集合的由来 Collection"></a>集合的由来 Collection</h2><ul>
+<li>数组的长度是固定的, 当添加的元素超过了数组的长度时需要重新定义, 过于麻烦, java 内部提供了集合lei,能存储任意对象, 长度时可变的, 随着元素的增加而增加, 随着元素的减少而减少</li>
+</ul>
+<h2 id="集合与数组的区别"><a href="#集合与数组的区别" class="headerlink" title="集合与数组的区别"></a>集合与数组的区别</h2><ul>
+<li>数组即可以存储基本数据类型, 也可以存储引用数据类型, 基本数据类型存储的是值, 应用类型存储的是地址, 但是集合只能存储引用数据类型(对象), 集合中也可以存储基本数据<code>但是会自动装箱成引用数据类型(int-&gt;integer)</code></li>
+<li>数组长度固定, 集合长度是可变的</li>
+</ul>
+<h2 id="数据结构之数组和链表"><a href="#数据结构之数组和链表" class="headerlink" title="数据结构之数组和链表"></a>数据结构之数组和链表</h2><ul>
+<li>数组查询快, 修改快, 增加删除慢</li>
+<li>链表查询慢, 修改慢, 增加删除快</li>
+</ul>
+<h3 id="数组和集合的使用"><a href="#数组和集合的使用" class="headerlink" title="数组和集合的使用"></a>数组和集合的使用</h3><ul>
+<li>元素固定用数组</li>
+<li>元素不固定用集合<h2 id="迭代器遍历"><a href="#迭代器遍历" class="headerlink" title="迭代器遍历"></a>迭代器遍历</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">集合内部都实现了迭代器</span><br><span class="line">    List c = <span class="keyword">new</span> ArrayList(); <span class="comment">//获取数组集合</span></span><br><span class="line">    c.add(<span class="string">"a"</span>); <span class="comment">//添加元素</span></span><br><span class="line">    c.add(<span class="string">"b"</span>);</span><br><span class="line">    c.add(<span class="string">"b"</span>);</span><br><span class="line">    Iterator it = c.iterator(); <span class="comment">//获取迭代器</span></span><br><span class="line">    <span class="keyword">while</span> (it.hasNext()) &#123; </span><br><span class="line">        Object obj1 = it.next(); <span class="comment">//获取每一个元素</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="并发修改"><a href="#并发修改" class="headerlink" title="并发修改"></a>并发修改</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ListIterator it = c.listIterator(); <span class="comment">//当遍历的时候使用添加元素,会产生并发修改异常, 需要使用 listIterator 迭代器区添加元素</span></span><br><span class="line"><span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="string">"str"</span>.equals(it.next())) &#123;</span><br><span class="line">        it.add(<span class="string">'添加'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Collection-单列集合-集合体系"><a href="#Collection-单列集合-集合体系" class="headerlink" title="Collection (单列集合)集合体系"></a>Collection (单列集合)集合体系</h2><h2 id="List-集合的三个子类的特点"><a href="#List-集合的三个子类的特点" class="headerlink" title="List 集合的三个子类的特点"></a>List 集合的三个子类的特点</h2><ul>
+<li>ArrayList 底层数据结构是数组,线程不安全, 效率高!</li>
+<li>Vecctor 底层数据结构是数组,线程安全, 效率低!</li>
+<li>LinkedList 底层数据结构是链表, 线程不安全, 效率高!</li>
+</ul>
+<h3 id="List-集合-gt-有序-存和取得顺序一致-有索引可以重复存储"><a href="#List-集合-gt-有序-存和取得顺序一致-有索引可以重复存储" class="headerlink" title="List 集合-&gt;有序(存和取得顺序一致), 有索引可以重复存储"></a>List 集合-&gt;有序(存和取得顺序一致), 有索引可以重复存储</h3><h3 id="ArrayList-数组实现"><a href="#ArrayList-数组实现" class="headerlink" title="ArrayList(数组实现)"></a>ArrayList(数组实现)</h3><h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><ul>
+<li>基本方法</li>
+</ul>
+<ul>
+<li>boolean add() 添加元素</li>
+<li>boolean remove() 删除元素</li>
+<li>void clear() 清空集合</li>
+<li>boolean contains() 是否包含某个元素</li>
+<li>boolean isEmpty() 是否为空</li>
+<li>int size() 集合的长度</li>
+</ul>
+<ul>
+<li>带 All 的方法</li>
+</ul>
+<ul>
+<li>boolean addAll(Collection c) 添加一个集合到另一个集合, 只占原集合一位</li>
+<li>boolean removeAll(Collection c) 移除一个集合, 删除交集</li>
+<li>boolean containAll(Collection c) 是否包含某集合</li>
+<li>boolean retainAll(Collection c) 取交集</li>
+</ul>
+<ul>
+<li>List 集合特有的功能</li>
+</ul>
+<ul>
+<li>void add(int index, E element) 添加都指定位置</li>
+<li>E remove(int index) 删除指定索引的元素, 返回该元素</li>
+<li>E get(int index) 获取指定索引的元素</li>
+<li>E set (int index, E element) 设置指定索引位置元素</li>
+</ul>
+<h3 id="LinkedList-链表实现"><a href="#LinkedList-链表实现" class="headerlink" title="LinkedList(链表实现)"></a>LinkedList(链表实现)</h3><h3 id="Vector-数组实现"><a href="#Vector-数组实现" class="headerlink" title="Vector(数组实现)"></a>Vector(数组实现)</h3><h4 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h4><ul>
+<li>特有方法</li>
+</ul>
+<ul>
+<li>void addElement(E obj) 添加元素</li>
+<li>E elementAt(int index) 获取元素</li>
+<li>E numeration elements() Vector 迭代器<h2 id="set-集合-gt-无序-存和取得顺序不一致-无索引-不可以重复存储"><a href="#set-集合-gt-无序-存和取得顺序不一致-无索引-不可以重复存储" class="headerlink" title="set 集合-&gt;无序(存和取得顺序不一致) 无索引, 不可以重复存储"></a>set 集合-&gt;无序(存和取得顺序不一致) 无索引, 不可以重复存储</h2></li>
+</ul>
+<h3 id="HashSet-底层hash算法"><a href="#HashSet-底层hash算法" class="headerlink" title="HashSet (底层hash算法)"></a>HashSet (底层hash算法)</h3><ul>
+<li>原理</li>
+</ul>
+<ul>
+<li>我们使用 set 集合都是需要去掉重复的元素, 如果在存储的时候逐个 equals() 比较, 效率太低, 哈希算法提高了去重复的效率, 降低了使用 equals() 方法的次数</li>
+<li>如果没有哈希值相同的对象就存入集合, 如果有逐个进行 equals() 比较, 结果为 false 就存入, true 则不存</li>
+</ul>
+<ul>
+<li>底层比较的是对象的地址, 如果要比较值, 需要重写内部的 hashCode() 和 equals()</li>
+<li>将自定义的对象存入 HashSet 去chongf,必须重写 hashCode() 和 equals() 方法</li>
+</ul>
+<ul>
+<li>hashCode() 属性相同的对象返回值必须相同, 属性不相同的返回值尽量不同(提高效率)</li>
+<li>equals() 属性相同返回 true, 属性不同返回 false, 返回 false 时存储</li>
+</ul>
+<h4 id="LinkedHashSet-可以保证存取的顺序"><a href="#LinkedHashSet-可以保证存取的顺序" class="headerlink" title="LinkedHashSet 可以保证存取的顺序"></a>LinkedHashSet 可以保证存取的顺序</h4><h3 id="TreeSet-二叉树算法"><a href="#TreeSet-二叉树算法" class="headerlink" title="TreeSet(二叉树算法)"></a>TreeSet(二叉树算法)</h3><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><ul>
+<li>特点</li>
+</ul>
+<ul>
+<li>TreeSet 是用来排序的, 可以指定一个顺序, 对象存入后, 会按照指定的顺序排序</li>
+</ul>
+<ul>
+<li>使用方法<ul>
+<li>自然排序(Comparable)<ul>
+<li>TreeSet 类的add()方法中会把存入的对象提升为 Comparable 类型</li>
+<li>调用 compareTo() 方法和集合中的对象比较</li>
+<li>根据 compareTo() 方法返回的结果进行存储</li>
+</ul>
+</li>
+<li>比较器顺序(Comparator)<ul>
+<li>创建 TreeSet 的时候可以制定一个 Comparator</li>
+<li>如果传入了 Comparator 的子类对象, 那么 TreeSet 就会按照比较器中的顺序排序</li>
+</ul>
+</li>
+<li>两种方式的区别<ul>
+<li>TreeSet 构造函数什么都不传, 默认按照类中 Comparable 的顺序</li>
+<li>TreeSet 如果传入 Comparator, 就优先按照 Comparator </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><ul>
+<li>作用</li>
+</ul>
+<ul>
+<li>提高安全性(将运行期的错误与转换到编译期)</li>
+<li>指定集合中的类型, 省去强转的麻烦</li>
+</ul>
+<ul>
+<li>基本使用</li>
+</ul>
+<ul>
+<li>&lt;数据类型&gt;, 前后的泛型必须一致.</li>
+<li>通配符泛型&lt;?&gt; 可以是 Object 以及任意的 JAVA 类型</li>
+<li>向下限定 extends E</li>
+<li>上线限定 super E</li>
+</ul>
+<h2 id="增强-for-循环"><a href="#增强-for-循环" class="headerlink" title="增强 for 循环"></a>增强 for 循环</h2><ul>
+<li>简化数组 和 Collection 集合的遍历<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (元素数据类型 变量 : 数组或者集合) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>###集合框架(三种删除)</p>
+<ul>
+<li>for 循环, 用索引删除</li>
+<li>迭代器, 必须使用迭代器自身的 remove 方法, 否则会出现并发修改异常</li>
+<li>增强 for 不能删除元素</li>
+</ul>
+<h3 id="数组转换成集合"><a href="#数组转换成集合" class="headerlink" title="数组转换成集合"></a>数组转换成集合</h3><ul>
+<li>Arrays.asList() 转集合后, 不能添加删除, 但是可以使用集合的其他方法</li>
+</ul>
+<h3 id="集合转数组"><a href="#集合转数组" class="headerlink" title="集合转数组"></a>集合转数组</h3><ul>
+<li>toArray()</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="" alt="leo wechat" style="width: 200px; max-width: 100%;"/>
+    <div></div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/leo.github.io/tags/javaSE/" rel="tag"># javaSE</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/leo.github.io/2016/11/19/java日期类/" rel="next" title="java日期对象">
+                <i class="fa fa-chevron-left"></i> java日期对象
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/leo.github.io/2017/01/08/immutable/" rel="prev" title="immutable 笔记">
+                immutable 笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">leo</p>
+              <p class="site-description motion-element" itemprop="description">千里之行, 始于足下</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/leo.github.io/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java-集合"><span class="nav-number">1.</span> <span class="nav-text">java 集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#集合的由来-Collection"><span class="nav-number">1.1.</span> <span class="nav-text">集合的由来 Collection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合与数组的区别"><span class="nav-number">1.2.</span> <span class="nav-text">集合与数组的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构之数组和链表"><span class="nav-number">1.3.</span> <span class="nav-text">数据结构之数组和链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组和集合的使用"><span class="nav-number">1.3.1.</span> <span class="nav-text">数组和集合的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代器遍历"><span class="nav-number">1.4.</span> <span class="nav-text">迭代器遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发修改"><span class="nav-number">1.5.</span> <span class="nav-text">并发修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection-单列集合-集合体系"><span class="nav-number">1.6.</span> <span class="nav-text">Collection (单列集合)集合体系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-集合的三个子类的特点"><span class="nav-number">1.7.</span> <span class="nav-text">List 集合的三个子类的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List-集合-gt-有序-存和取得顺序一致-有索引可以重复存储"><span class="nav-number">1.7.1.</span> <span class="nav-text">List 集合->有序(存和取得顺序一致), 有索引可以重复存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList-数组实现"><span class="nav-number">1.7.2.</span> <span class="nav-text">ArrayList(数组实现)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法"><span class="nav-number">1.7.2.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedList-链表实现"><span class="nav-number">1.7.3.</span> <span class="nav-text">LinkedList(链表实现)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vector-数组实现"><span class="nav-number">1.7.4.</span> <span class="nav-text">Vector(数组实现)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法-1"><span class="nav-number">1.7.4.1.</span> <span class="nav-text">方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-集合-gt-无序-存和取得顺序不一致-无索引-不可以重复存储"><span class="nav-number">1.8.</span> <span class="nav-text">set 集合->无序(存和取得顺序不一致) 无索引, 不可以重复存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet-底层hash算法"><span class="nav-number">1.8.1.</span> <span class="nav-text">HashSet (底层hash算法)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedHashSet-可以保证存取的顺序"><span class="nav-number">1.8.1.1.</span> <span class="nav-text">LinkedHashSet 可以保证存取的顺序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeSet-二叉树算法"><span class="nav-number">1.8.2.</span> <span class="nav-text">TreeSet(二叉树算法)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原理"><span class="nav-number">1.8.2.1.</span> <span class="nav-text">原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泛型"><span class="nav-number">1.9.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增强-for-循环"><span class="nav-number">1.10.</span> <span class="nav-text">增强 for 循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组转换成集合"><span class="nav-number">1.10.1.</span> <span class="nav-text">数组转换成集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合转数组"><span class="nav-number">1.10.2.</span> <span class="nav-text">集合转数组</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">leo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/leo.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/leo.github.io/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/leo.github.io/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/leo.github.io/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/leo.github.io/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/leo.github.io/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/leo.github.io/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/leo.github.io/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
