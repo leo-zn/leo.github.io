@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="java中内存分配 栈  存储局部变量   堆 存储 new 出来的数组或对象   方法区 存储方法   寄存器 给 CPU 使用">
+<meta name="description" content="java File 文件类使用概述 File 更应该叫做一个路径 文件路径或者文件夹路径 路径分为绝对路径和相对路径 相对路径, eclipse 一般为当前项目下    构造方法 File (String pathname): 根据一个路径得到 File 对象 File (String parent, String c">
 <meta name="keywords" content="javaSE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java内存分配">
-<meta property="og:url" content="https://leo-zn.github.io/leo.github.io/2016/04/03/jav内存分配/index.html">
+<meta property="og:title" content="java file">
+<meta property="og:url" content="https://leo-zn.github.io/leo.github.io/2017/01/03/java文件类/index.html">
 <meta property="og:site_name" content="leo博客">
-<meta property="og:description" content="java中内存分配 栈  存储局部变量   堆 存储 new 出来的数组或对象   方法区 存储方法   寄存器 给 CPU 使用">
+<meta property="og:description" content="java File 文件类使用概述 File 更应该叫做一个路径 文件路径或者文件夹路径 路径分为绝对路径和相对路径 相对路径, eclipse 一般为当前项目下    构造方法 File (String pathname): 根据一个路径得到 File 对象 File (String parent, String child) 根据一个目录和子文件/目录得到 File 对象 就是把一个文件路径,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-18T03:30:55.365Z">
+<meta property="og:updated_time" content="2017-12-21T15:35:52.714Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java内存分配">
-<meta name="twitter:description" content="java中内存分配 栈  存储局部变量   堆 存储 new 出来的数组或对象   方法区 存储方法   寄存器 给 CPU 使用">
+<meta name="twitter:title" content="java file">
+<meta name="twitter:description" content="java File 文件类使用概述 File 更应该叫做一个路径 文件路径或者文件夹路径 路径分为绝对路径和相对路径 相对路径, eclipse 一般为当前项目下    构造方法 File (String pathname): 根据一个路径得到 File 对象 File (String parent, String child) 根据一个目录和子文件/目录得到 File 对象 就是把一个文件路径,">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://leo-zn.github.io/leo.github.io/2016/04/03/jav内存分配/"/>
+  <link rel="canonical" href="https://leo-zn.github.io/leo.github.io/2017/01/03/java文件类/"/>
 
 
 
 
 
-  <title>java内存分配 | leo博客</title>
+  <title>java file | leo博客</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://leo-zn.github.io/leo.github.io/leo.github.io/2016/04/03/jav内存分配/">
+    <link itemprop="mainEntityOfPage" href="https://leo-zn.github.io/leo.github.io/leo.github.io/2017/01/03/java文件类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="leo">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java内存分配</h1>
+          <h1 class="post-title" itemprop="name headline">java file</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-03T10:32:41+08:00">
-                2016-04-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-03T22:16:22+08:00">
+                2017-01-03
               </time>
             
 
@@ -350,21 +350,63 @@
       
 
       
-        <h2 id="java中内存分配"><a href="#java中内存分配" class="headerlink" title="java中内存分配"></a>java中内存分配</h2><ul>
-<li>栈 <ul>
-<li>存储局部变量</li>
+        <h2 id="java-File-文件类使用"><a href="#java-File-文件类使用" class="headerlink" title="java File 文件类使用"></a>java File 文件类使用</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<li>File 更应该叫做一个路径<ul>
+<li>文件路径或者文件夹路径</li>
+<li>路径分为绝对路径和相对路径</li>
+<li>相对路径, eclipse 一般为当前项目下</li>
 </ul>
 </li>
-<li>堆<ul>
-<li>存储 new 出来的数组或对象</li>
+</ul>
+<h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h3><ul>
+<li>File (String pathname): 根据一个路径得到 File 对象</li>
+<li>File (String parent, String child) 根据一个目录和子文件/目录得到 File 对象<ul>
+<li>就是把一个文件路径, 分为2个部分, 这样更灵活</li>
 </ul>
 </li>
-<li>方法区<ul>
-<li>存储方法</li>
+<li>创建功能<ul>
+<li>public boolean createNewFile() 创建一个新文件, 如有有就不创建</li>
+<li>public boolean mkdir() 创建文件夹, 如果存在就不创建</li>
+<li>public boolean mkdirs() 创建一个文件夹, 如果父文件夹不存在, 会帮你创建出来</li>
 </ul>
 </li>
-<li>寄存器<ul>
-<li>给 CPU 使用</li>
+</ul>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ul>
+<li>File 重命名<ul>
+<li>public boolean removeTo(File dest) 把文件重命名为指的文件-&gt;虽然是改名, 但是不能传入一个名字的字符串, 只能新建一个文件,当参数传递</li>
+</ul>
+</li>
+<li>File 删除功能<ul>
+<li>public boolean delete() 删除文件或者文件夹</li>
+</ul>
+</li>
+<li>重命名注意事项<ul>
+<li>如果路径名相同, 就改名</li>
+<li>如果路径名不同, 就改名并剪切</li>
+</ul>
+</li>
+<li>删除注意事项<ul>
+<li>删除的文件夹, 里面不能有文件或者文件夹, 否则无法删除</li>
+<li>删除的文件不会走回收站</li>
+</ul>
+</li>
+<li>判断功能<ul>
+<li>public boolean isDirectory() 判断是否是目录</li>
+<li>public boolean isFile() 判断是否是文件</li>
+<li>public boolean exists() 判断是否存在</li>
+<li>public boolean canRead() 判断是否可读</li>
+<li>public boolean canWrite() 判断是否可写</li>
+<li>public boolean isHidden() 判断是否隐藏</li>
+</ul>
+</li>
+<li>获取功能<ul>
+<li>public String getAbsolutePath() 获取绝对路径</li>
+<li>public String getPath() 获取路径</li>
+<li>public getName() 获取名称</li>
+<li>public long length() 获取长度-&gt;字节数</li>
+<li>public long lastModified() 获取最后一次修改的时间</li>
+<li>public String[] list() 获取指定目录下的所有文件或者文件夹的<code>名称</code>数组</li>
+<li>public File[] listFile() 获取指定目录下的所有文件或者文件夹的 File 数组</li>
 </ul>
 </li>
 </ul>
@@ -406,14 +448,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/leo.github.io/2016/12/19/集合框架/" rel="next" title="java 集合框架">
+                <i class="fa fa-chevron-left"></i> java 集合框架
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/leo.github.io/2016/06/12/23种设计模式/" rel="prev" title="迭代器模式">
-                迭代器模式 <i class="fa fa-chevron-right"></i>
+              <a href="/leo.github.io/2017/01/08/immutable/" rel="prev" title="immutable 笔记">
+                immutable 笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -544,7 +590,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java中内存分配"><span class="nav-number">1.</span> <span class="nav-text">java中内存分配</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-File-文件类使用"><span class="nav-number">1.</span> <span class="nav-text">java File 文件类使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造方法"><span class="nav-number">1.2.</span> <span class="nav-text">构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用方法"><span class="nav-number">1.3.</span> <span class="nav-text">常用方法</span></a></li></ol></li></ol></div>
             
 
           </div>

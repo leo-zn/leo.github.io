@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="leo博客">
 <meta property="og:description" content="java 集合集合的由来 Collection 数组的长度是固定的, 当添加的元素超过了数组的长度时需要重新定义, 过于麻烦, java 内部提供了集合lei,能存储任意对象, 长度时可变的, 随着元素的增加而增加, 随着元素的减少而减少  集合与数组的区别 数组即可以存储基本数据类型, 也可以存储引用数据类型, 基本数据类型存储的是值, 应用类型存储的是地址, 但是集合只能存储引用数据类型(对象">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-20T16:10:39.379Z">
+<meta property="og:updated_time" content="2017-12-21T14:50:15.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java 集合框架">
 <meta name="twitter:description" content="java 集合集合的由来 Collection 数组的长度是固定的, 当添加的元素超过了数组的长度时需要重新定义, 过于麻烦, java 内部提供了集合lei,能存储任意对象, 长度时可变的, 随着元素的增加而增加, 随着元素的减少而减少  集合与数组的区别 数组即可以存储基本数据类型, 也可以存储引用数据类型, 基本数据类型存储的是值, 应用类型存储的是地址, 但是集合只能存储引用数据类型(对象">
@@ -369,7 +369,7 @@
 <h2 id="并发修改"><a href="#并发修改" class="headerlink" title="并发修改"></a>并发修改</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ListIterator it = c.listIterator(); <span class="comment">//当遍历的时候使用添加元素,会产生并发修改异常, 需要使用 listIterator 迭代器区添加元素</span></span><br><span class="line"><span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="string">"str"</span>.equals(it.next())) &#123;</span><br><span class="line">        it.add(<span class="string">'添加'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Collection-单列集合-集合体系"><a href="#Collection-单列集合-集合体系" class="headerlink" title="Collection (单列集合)集合体系"></a>Collection (单列集合)集合体系</h2><h2 id="List-集合的三个子类的特点"><a href="#List-集合的三个子类的特点" class="headerlink" title="List 集合的三个子类的特点"></a>List 集合的三个子类的特点</h2><ul>
 <li>ArrayList 底层数据结构是数组,线程不安全, 效率高!</li>
-<li>Vecctor 底层数据结构是数组,线程安全, 效率低!</li>
+<li>Vector 底层数据结构是数组,线程安全, 效率低!</li>
 <li>LinkedList 底层数据结构是链表, 线程不安全, 效率高!</li>
 </ul>
 <h3 id="List-集合-gt-有序-存和取得顺序一致-有索引可以重复存储"><a href="#List-集合-gt-有序-存和取得顺序一致-有索引可以重复存储" class="headerlink" title="List 集合-&gt;有序(存和取得顺序一致), 有索引可以重复存储"></a>List 集合-&gt;有序(存和取得顺序一致), 有索引可以重复存储</h3><h3 id="ArrayList-数组实现"><a href="#ArrayList-数组实现" class="headerlink" title="ArrayList(数组实现)"></a>ArrayList(数组实现)</h3><h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><ul>
@@ -483,6 +483,43 @@
 <h3 id="集合转数组"><a href="#集合转数组" class="headerlink" title="集合转数组"></a>集合转数组</h3><ul>
 <li>toArray()</li>
 </ul>
+<h1 id="Map-集合"><a href="#Map-集合" class="headerlink" title="Map 集合"></a>Map 集合</h1><h2 id="Map-和-Collection-区别"><a href="#Map-和-Collection-区别" class="headerlink" title="Map 和 Collection 区别"></a>Map 和 Collection 区别</h2><ul>
+<li>Map 是双列集合, Collection 是单列集合</li>
+<li>Map 的键是唯一的, Collection 的子体系 Set 是唯一的</li>
+<li>Map 集合的数据结构只对键有效, 跟值无关, Collection 集合的数据结构是对元素有效</li>
+</ul>
+<h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><ul>
+<li>put(K key, V value) 添加元素<ul>
+<li>如果键是第一次存储, 就直接存储元素, 返回 null</li>
+<li>如果键不是一次存储, 就替换掉之前的值, 返回被替掉的值</li>
+</ul>
+</li>
+<li>void clear() 移除所有的元素</li>
+<li>判断<ul>
+<li>remove(Object key) 根基键删除元素, 并返回该元素</li>
+<li>boolean containsKey(Object key) 判断集合是否包含指定的键</li>
+<li>boolean contiansValue(Object value) 判断集合是否包含指定的值</li>
+<li>boolean isEmpty() 判断集合是否为空</li>
+</ul>
+</li>
+<li>获取功能<ul>
+<li>V get(Object key) 根据键获取值</li>
+<li>Set<k> keySet() 获取集合中所有键的集合</k></li>
+<li>Collection<v> values() 获取集合中所有值的集合</v></li>
+</ul>
+</li>
+<li>长度<ul>
+<li>int size() 返回集合元素个数</li>
+</ul>
+</li>
+</ul>
+<h2 id="Collections-工具类常见的方法"><a href="#Collections-工具类常见的方法" class="headerlink" title="Collections 工具类常见的方法"></a>Collections 工具类常见的方法</h2><ul>
+<li>public static <t> viod sort()</t></li>
+<li>public static <t> int binarySearch(List&lt;?&gt; list, T key)</t></li>
+<li>public static <t> T max(Collection&lt;?&gt; coll)</t></li>
+<li>public static viod reverse(List&lt;?&gt; list)</li>
+<li>public static viod shuffle(List&lt;?&gt; list)</li>
+</ul>
 
       
     </div>
@@ -531,8 +568,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/leo.github.io/2017/01/08/immutable/" rel="prev" title="immutable 笔记">
-                immutable 笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/leo.github.io/2017/01/03/java文件类/" rel="prev" title="java file">
+                java file <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -606,7 +643,7 @@
               
                 <a href="/leo.github.io/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -663,7 +700,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java-集合"><span class="nav-number">1.</span> <span class="nav-text">java 集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#集合的由来-Collection"><span class="nav-number">1.1.</span> <span class="nav-text">集合的由来 Collection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合与数组的区别"><span class="nav-number">1.2.</span> <span class="nav-text">集合与数组的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构之数组和链表"><span class="nav-number">1.3.</span> <span class="nav-text">数据结构之数组和链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组和集合的使用"><span class="nav-number">1.3.1.</span> <span class="nav-text">数组和集合的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代器遍历"><span class="nav-number">1.4.</span> <span class="nav-text">迭代器遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发修改"><span class="nav-number">1.5.</span> <span class="nav-text">并发修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection-单列集合-集合体系"><span class="nav-number">1.6.</span> <span class="nav-text">Collection (单列集合)集合体系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-集合的三个子类的特点"><span class="nav-number">1.7.</span> <span class="nav-text">List 集合的三个子类的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List-集合-gt-有序-存和取得顺序一致-有索引可以重复存储"><span class="nav-number">1.7.1.</span> <span class="nav-text">List 集合->有序(存和取得顺序一致), 有索引可以重复存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList-数组实现"><span class="nav-number">1.7.2.</span> <span class="nav-text">ArrayList(数组实现)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法"><span class="nav-number">1.7.2.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedList-链表实现"><span class="nav-number">1.7.3.</span> <span class="nav-text">LinkedList(链表实现)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vector-数组实现"><span class="nav-number">1.7.4.</span> <span class="nav-text">Vector(数组实现)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法-1"><span class="nav-number">1.7.4.1.</span> <span class="nav-text">方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-集合-gt-无序-存和取得顺序不一致-无索引-不可以重复存储"><span class="nav-number">1.8.</span> <span class="nav-text">set 集合->无序(存和取得顺序不一致) 无索引, 不可以重复存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet-底层hash算法"><span class="nav-number">1.8.1.</span> <span class="nav-text">HashSet (底层hash算法)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedHashSet-可以保证存取的顺序"><span class="nav-number">1.8.1.1.</span> <span class="nav-text">LinkedHashSet 可以保证存取的顺序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeSet-二叉树算法"><span class="nav-number">1.8.2.</span> <span class="nav-text">TreeSet(二叉树算法)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原理"><span class="nav-number">1.8.2.1.</span> <span class="nav-text">原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泛型"><span class="nav-number">1.9.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增强-for-循环"><span class="nav-number">1.10.</span> <span class="nav-text">增强 for 循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组转换成集合"><span class="nav-number">1.10.1.</span> <span class="nav-text">数组转换成集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合转数组"><span class="nav-number">1.10.2.</span> <span class="nav-text">集合转数组</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java-集合"><span class="nav-number">1.</span> <span class="nav-text">java 集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#集合的由来-Collection"><span class="nav-number">1.1.</span> <span class="nav-text">集合的由来 Collection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合与数组的区别"><span class="nav-number">1.2.</span> <span class="nav-text">集合与数组的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构之数组和链表"><span class="nav-number">1.3.</span> <span class="nav-text">数据结构之数组和链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组和集合的使用"><span class="nav-number">1.3.1.</span> <span class="nav-text">数组和集合的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代器遍历"><span class="nav-number">1.4.</span> <span class="nav-text">迭代器遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发修改"><span class="nav-number">1.5.</span> <span class="nav-text">并发修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection-单列集合-集合体系"><span class="nav-number">1.6.</span> <span class="nav-text">Collection (单列集合)集合体系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-集合的三个子类的特点"><span class="nav-number">1.7.</span> <span class="nav-text">List 集合的三个子类的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List-集合-gt-有序-存和取得顺序一致-有索引可以重复存储"><span class="nav-number">1.7.1.</span> <span class="nav-text">List 集合->有序(存和取得顺序一致), 有索引可以重复存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList-数组实现"><span class="nav-number">1.7.2.</span> <span class="nav-text">ArrayList(数组实现)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法"><span class="nav-number">1.7.2.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedList-链表实现"><span class="nav-number">1.7.3.</span> <span class="nav-text">LinkedList(链表实现)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vector-数组实现"><span class="nav-number">1.7.4.</span> <span class="nav-text">Vector(数组实现)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法-1"><span class="nav-number">1.7.4.1.</span> <span class="nav-text">方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-集合-gt-无序-存和取得顺序不一致-无索引-不可以重复存储"><span class="nav-number">1.8.</span> <span class="nav-text">set 集合->无序(存和取得顺序不一致) 无索引, 不可以重复存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet-底层hash算法"><span class="nav-number">1.8.1.</span> <span class="nav-text">HashSet (底层hash算法)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedHashSet-可以保证存取的顺序"><span class="nav-number">1.8.1.1.</span> <span class="nav-text">LinkedHashSet 可以保证存取的顺序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeSet-二叉树算法"><span class="nav-number">1.8.2.</span> <span class="nav-text">TreeSet(二叉树算法)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原理"><span class="nav-number">1.8.2.1.</span> <span class="nav-text">原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泛型"><span class="nav-number">1.9.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增强-for-循环"><span class="nav-number">1.10.</span> <span class="nav-text">增强 for 循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组转换成集合"><span class="nav-number">1.10.1.</span> <span class="nav-text">数组转换成集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合转数组"><span class="nav-number">1.10.2.</span> <span class="nav-text">集合转数组</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Map-集合"><span class="nav-number">2.</span> <span class="nav-text">Map 集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Map-和-Collection-区别"><span class="nav-number">2.1.</span> <span class="nav-text">Map 和 Collection 区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本方法"><span class="nav-number">2.1.1.</span> <span class="nav-text">基本方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collections-工具类常见的方法"><span class="nav-number">2.2.</span> <span class="nav-text">Collections 工具类常见的方法</span></a></li></ol></li></ol></div>
             
 
           </div>
